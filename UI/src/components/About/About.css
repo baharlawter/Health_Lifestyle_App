@@ -1,0 +1,112 @@
+main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+.text {
+  max-width: 400px;
+
+  padding: 1.5rem;
+  border: 2px solid #393939;
+  border-radius: 8px;
+  background-color: #fefefe;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-image {
+  max-width: 400px;
+  height: 485px;
+  padding: 1.5rem;
+  border: 2px solid #393939;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-container {
+  margin-left: 25rem;
+  margin-top: 5rem;
+  padding: 1.5rem;
+  background-color: #fefefe;
+  border-top: 2px solid #ccc;
+}
+
+@media (max-width: 480) {
+  main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+  .text {
+    max-width: 400px;
+
+    padding: 1.5rem;
+    border: 2px solid #393939;
+    border-radius: 8px;
+    background-color: #fefefe;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-image {
+    max-width: 400px;
+    height: 485px;
+    padding: 1.5rem;
+    border: 2px solid #393939;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .bottom-container {
+    margin-left: 25rem;
+    margin-top: 5rem;
+    padding: 1.5rem;
+    background-color: #fefefe;
+    border-top: 2px solid #ccc;
+  }
+}
+@media (min-width: 481px) and(max-with:768px) {
+  main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+  .text {
+    max-width: 400px;
+
+    padding: 1.5rem;
+    border: 2px solid #393939;
+    border-radius: 8px;
+    background-color: #fefefe;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-image {
+    max-width: 400px;
+    height: 485px;
+    padding: 1.5rem;
+    border: 2px solid #393939;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .bottom-container {
+    text-align: center;
+
+    margin-left: 25rem;
+    margin-top: 5rem;
+    padding: 1.5rem;
+    background-color: #fefefe;
+    border-top: 2px solid #ccc;
+  }
+}

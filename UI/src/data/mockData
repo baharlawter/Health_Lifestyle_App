@@ -1,0 +1,64 @@
+import Exercise from "../assets/Exercize.jpg";
+import Fasting from "../assets/Fasting.jpg";
+import Sugar from "../assets/Sugar.jpg";
+import Plate from "../assets/Plate.jpg";
+const CardArray = [
+  {
+    title: "Exercise Daily",
+    image: Exercise,
+    alt: "Exercize",
+    description:
+      "Exercise is essential for maintaining a healthy body and mind. It strengthens muscles, improves heart health, and boosts endurance, making daily activities easier. Regular movement helps control weight, reduce stress, and enhance mood by releasing feel-good hormones.",
+  },
+  {
+    title: "Intermittent Fasting",
+    image: Fasting,
+    alt: "Exercize",
+    description:
+      "Intermittent fasting is a popular eating pattern that cycles between periods of eating and fasting. It can help with weight management, blood sugar control, and cellular repair by allowing the body to burn stored fat more efficiently.",
+  },
+  {
+    title: "Quitting Added Sugar",
+    image: Sugar,
+    alt: "Why added sugar is bad for you?",
+    description:
+      "Added sugar can have serious effects on health, contributing to weight gain, heart disease, and increased risk of diabetes. Excess sugar consumption can lead to inflammation, disrupt metabolism, and even accelerate skin aging2.",
+  },
+  {
+    title: "Eating Healthy",
+    image: Plate,
+    alt: "A healthy meal",
+    description:
+      "Eating healthy fuels your body with the nutrients it needs to function at its best. A balanced diet supports strong immunity, steady energy, and better digestion—while helping to maintain a healthy weight and reduce the risk of chronic diseases like heart disease and diabetes. ",
+  },
+];
+
+const BooksArray = [
+  {
+    title: "Young Forever.",
+
+    image: "https://m.media-amazon.com/images/I/41jcolfcnEL._SY445_SX342_.jpg",
+    link: "https://www.amazon.com/s?k=Young+forever",
+  },
+  {
+    title: "The Obesity Code.",
+
+    image: "https://m.media-amazon.com/images/I/61SArpks6RL._SL1500_.jpg",
+    link: "https://www.amazon.com/s?k=The+Obesity+Code",
+  },
+
+  {
+    title: "Full Body Workouts",
+
+    image: "https://m.media-amazon.com/images/I/81wgwXnOxjL._AC_SX522_.jpg",
+    link: "https://www.amazon.com/TRX-ALL-Suspension-Training-System/dp/B002YRB35I/ref=sr_1_21_sspa?crid=1R98QIYAA00BH&dib=eyJ2IjoiMSJ9.ElBurVWZ6FQx2jP0G5DjOXtHGix2TYTmuApowSWCI-j7wLQah8sub4sOc27YLj4Em49UgkXIDk4z2pIRUd9OWuUp1DQyp0owL9qelMeK0sQ3XKAgfZB-pvK_Tbof1i7A-xLfK0k1uhRfJsKwiUh_yjkx2hLXXPJGJO7ujPknmL-PKzDuJG-bPv7JnU0L6wAaIkMw2-ipil1KBfTe2z5wpgaFzwLe--oJ-9Nizbu1iSrwiza37vvmvlHFQslPb_F0bVOIYtkYEX3Pl8YFnLwPlUW4iTHLljl3tZJ8v7hpqBU.qgTOqJC5IKWDoKWxnn9RKxzJ7QS7t3pIi4CNBuIRFnE&dib_tag=se&keywords=exercise+book&qid=1752069360&sprefix=exercise+book%2Caps%2C145&sr=8-21-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1",
+  },
+  {
+    title: "Eat Better, Feel Better",
+
+    image: "https://m.media-amazon.com/images/I/81jFUMoF71L._SY342_.jpg",
+    link: "https://www.amazon.com/Eat-Better-Feel-Recipes-Wellness/dp/0593138430/ref=sr_1_24?crid=1SQHDGAA28YP5&dib=eyJ2IjoiMSJ9.4lHB3y9-htMhH9z2Lj-XhG7W4WEckJXRrQGxROkfD-ju3aRBFgFoPwmNcPRrYMJvP-am7sTqM-AiGhs5g0lByNWxYkO-yv7Ie0Y9Hc2qmIlq8N8tZONhDxRNaBJKzvznj5OSKDvok4HPOgRMqAJs53wUZ_oEBqLbVG7F2heJlbWigyhUZJaAnyZTiqEJjZYVpJ26C-u1c5pSXvtFGxP97VdMchj7sWPFjtYL3MRV40iIIPQMZ4y0qnGcn4C4BtIu7SlOEsaPrqJgPicPX-V3lHwdsWNznDffOc1NBPhTeGs.8W-vA_o90u94K8Ey6hPKOfs1wh6pqZRKP6a7UA9qlL8&dib_tag=se&keywords=healthy+recipes&qid=1752069998&sprefix=healthy+recipe%2Caps%2C148&sr=8-24",
+  },
+];
+
+export { CardArray, BooksArray };
