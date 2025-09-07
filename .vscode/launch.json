@@ -5,7 +5,7 @@
       "type": "java",
       "name": "Launch API (Spring Boot)",
       "request": "launch",
-      "mainClass": "com.BlogapiApplication", // <-- Replace with your main class
+      "mainClass": "com.BlogapiApplication",
       "projectName": "blogapi"
     },
     {
