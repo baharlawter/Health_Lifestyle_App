@@ -23,8 +23,6 @@ public class BlogController {
 
     @GetMapping
     public List<Blog> getAllBlogs() {
-
-        // return dummyBlogs;
         return blogService.getAllBlogs();
     }
     @GetMapping("/{id}")

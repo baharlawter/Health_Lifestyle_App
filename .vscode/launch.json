@@ -5,7 +5,7 @@
       "type": "java",
       "name": "Launch API (Spring Boot)",
       "request": "launch",
-      "mainClass": "com.BlogapiApplication",
+      "mainClass": "com.healthylifestyle.blogapi.BlogapiApplication",
       "projectName": "blogapi"
     },
     {
@@ -14,10 +14,7 @@
       "name": "Launch UI (npm start)",
       "cwd": "${workspaceFolder}/ui",
       "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run",
-        "dev"
-      ],
+      "runtimeArgs": ["run", "dev"],
       "console": "integratedTerminal"
     }
   ]

@@ -8,7 +8,7 @@
         <version>3.5.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.healthylifestyle</groupId>
+    <groupId>com.healthylifestyle.blogapi</groupId>
     <artifactId>blogapi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>blogapi</name>
@@ -27,7 +27,7 @@
         <url/>
     </scm>
     <properties>
-        <java.version>21</java.version>
+        <java.version>24</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -37,10 +37,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>com.mysql</groupId>
@@ -66,7 +62,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.14.0</version>
                 <configuration>
-                    <release>21</release>
+                    <release>24</release>
                     <compilerArgs>
                         <arg>--enable-preview</arg>
                     </compilerArgs>
