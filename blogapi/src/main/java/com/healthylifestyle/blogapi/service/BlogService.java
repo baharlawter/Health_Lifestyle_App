@@ -1,11 +1,11 @@
 package com.healthylifestyle.blogapi.service;
 
-import java.lang.foreign.Linker.Option;
+// import java.lang.foreign.Linker.Option;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.healthylifestyle.blogapi.model.Blog;
 import com.healthylifestyle.blogapi.repository.BlogRepository;
 
@@ -13,7 +13,6 @@ import com.healthylifestyle.blogapi.repository.BlogRepository;
 public class BlogService {
     private final BlogRepository blogRepository;
 
-    @Autowired
     public BlogService(BlogRepository blogRepository) {
         this.blogRepository = blogRepository;
     }
