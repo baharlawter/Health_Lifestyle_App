@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch API (Spring Boot)",
+      "request": "launch",
+      "mainClass": "com.BlogapiApplication", // <-- Replace with your main class
+      "projectName": "blogapi"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch UI (npm start)",
+      "cwd": "${workspaceFolder}/ui",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "console": "integratedTerminal"
+    }
+  ]
+}
