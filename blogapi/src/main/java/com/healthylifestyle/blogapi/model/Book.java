@@ -1,39 +1,41 @@
 package com.healthylifestyle.blogapi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "books")
 public class Book {
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
     private String author;
-    private String description;
-
-    public Book() {}
-
-    public Book(String title, String author, String description) {
+    @Column(name="url_image")
+    private String urlImage;
+   
+//constructor
+    public Book(String title, String author, String urlImage) {
         this.title = title;
         this.author = author;
-        this.description = description;
+        this.urlImage = urlImage;
     }
+    public Book() {}//requried by JPA
 
-    // Getters and setters...
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-    public String getAuthor() { return author; }
-    public void setAuthor(String author) { this.author = author; }
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-}
+//getters and setters
+    public Long getId() { return id;
+    }
+    public void setId(Long id) {this.id = id;
+    }
+    public String getTitle() {return title;
+    }
+    public void setTitle(String title) {this.title = title;
+    }
+    public String getAuthor() {return author;
+    }
+    public void setAuthor(String author) {this.author = author;
+    }
+    public String getUrlImage() { return urlImage;
+    }
+    public void setUrlImage(String urlImage) {this.urlImage = urlImage;
+    }}

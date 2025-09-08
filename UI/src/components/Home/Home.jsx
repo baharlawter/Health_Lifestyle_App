@@ -25,7 +25,7 @@ import Card from "./Cards/Card";
 function Home() {
   const [cards, setCards] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8080/api/blogs")
+    fetch("http://localhost:8081/api/blogs")
       .then((response) => response.json())
       .then((data) => setCards(data))
       .catch((error) => console.error("Error fetching blog", error));

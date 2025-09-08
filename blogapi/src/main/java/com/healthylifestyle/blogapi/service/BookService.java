@@ -10,12 +10,12 @@ import com.healthylifestyle.blogapi.repository.BookRepository;
 @Service
 public class BookService {
     private final BookRepository bookRepository;
-    public BookService(BookRepository bookRepository){
-        this.bookRepository=bookRepository;
 
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
-    public List<Book> getAllBooks(){
+
+    public List<Book> getAllBooks() {
         return bookRepository.findAll();
-        
     }
 }
