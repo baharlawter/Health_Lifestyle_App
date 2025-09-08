@@ -29,11 +29,11 @@ function About() {
         </div>
         <img
           className="about-image"
-          src="https://bing.com/th/id/BCO.8b9b6f04-fa85-4b5c-b52f-5c12710a54a1.png"
+          src="https://images.unsplash.com/photo-1702234844718-5f4f77a93baa?q=80&w=2344&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="about me page"
         />
       </main>
-      <div className="bottom-container">
+      {/* <div className="bottom-container">
         <div className="text ">
           <h2>What We Do</h2>
           <ul>
@@ -43,7 +43,7 @@ function About() {
             <li>Educate Impact of Added Sugar</li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
