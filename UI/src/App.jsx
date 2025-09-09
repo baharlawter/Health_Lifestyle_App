@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import ListOfMeals from "./components/Shop/Shop";
 import About from "./components/About/About";
 import Api from "./components/Api/Api";
+import BlogDetail from "./components/Home/Blogs/BlogDetail";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/about" element={<About />} />
             <Route path="/api" element={<Api />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
           </Routes>
 
           <Footer />

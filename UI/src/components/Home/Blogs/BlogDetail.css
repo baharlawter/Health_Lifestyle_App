@@ -1,0 +1,24 @@
+.blog-detail {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #f9f9f9;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.blog-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #2d4a22;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.blog-paragraph {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #333;
+  margin-top: 0;
+  white-space: pre-line;
+}

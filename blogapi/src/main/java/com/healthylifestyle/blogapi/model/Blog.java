@@ -13,13 +13,16 @@ public class Blog {
     private String imageUrl;
     @Column(name="blog_content", columnDefinition="TEXT")
     private String blogContent;
+    @Column(name="more_info", columnDefinition = "TEXT")
+    private String moreInfo;
 
 
     // constructor
-    public Blog(String title, String imageUrl, String blogContent) {
+    public Blog(String title, String imageUrl, String blogContent, String moreInfo) {
         this.title = title;
         this.imageUrl = imageUrl;
         this.blogContent = blogContent;
+        this.moreInfo = moreInfo;
     }
 
     public Blog() {
@@ -38,4 +41,7 @@ public class Blog {
 
     public String getBlogContent() { return blogContent; }
     public void setBlogContent(String blogContent) { this.blogContent = blogContent; }
+
+    public String getMoreInfo() { return moreInfo; }
+    public void setMoreInfo(String moreInfo) { this.moreInfo = moreInfo; }
 }
