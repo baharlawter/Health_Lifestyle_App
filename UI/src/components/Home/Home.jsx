@@ -35,6 +35,7 @@ function Home() {
       {cards.map((card, index) => (
         <Card
           key={card.id || index}
+          id={card.id}
           image={card.imageUrl}
           title={card.title}
           description={card.blogContent}
