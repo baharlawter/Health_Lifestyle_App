@@ -84,36 +84,38 @@ function Footer() {
   };
 
   return (
-    <div className="contactDiv">
-      <h3>Leave Your Comments Below</h3>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          placeholder="Your Name"
-        />
-        <br />
-        <input
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="Your Email"
-        />
-        <br />
-        <textarea
-          name="comment"
-          value={form.comment}
-          onChange={handleChange}
-          placeholder="Comments"
-        />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-      {msg && <p>{msg}</p>}
-      <div>
+    <div className="footer-flex-container">
+      <div className="footer-box comment-box">
+        <h3>Leave Your Comments Below</h3>
+        <form onSubmit={handleSubmit}>
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+          />
+          <br />
+          <input
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="Your Email"
+          />
+          <br />
+          <textarea
+            name="comment"
+            value={form.comment}
+            onChange={handleChange}
+            placeholder="Comments"
+          />
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+        {msg && <p>{msg}</p>}
+      </div>
+      <div className="footer-box contact-box">
+        <h3>Please Contact Us</h3>
         <ul>
-          <h3>Please Contact Us</h3>
           <li>123 Sloan lane, Las Vegas, NV, 66677</li>
         </ul>
         <p>Phone Number: 123-123-123</p>
