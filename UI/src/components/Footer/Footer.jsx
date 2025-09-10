@@ -47,19 +47,32 @@
 // }
 
 // export default Footer;
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+import "./Footer.css";
 
 import "./Footer.css";
 
 function Footer() {
   const [form, setForm] = useState({ name: "", email: "", comment: "" });
   const [msg, setMsg] = useState("");
+  const [comments, setComments] = useState([]);
 
+  // Handle  form fields
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
+  useEffect(() => {
+    fetch("http://localhost:8081/api/comments")
+      .then((res) => res.json())
+      .then((data) => setComments(data));
+  }, [msg]);
+
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Simple validation
     if (!form.name || !form.email || !form.comment) {
       setMsg("Please fill out all fields.");
       return;
@@ -74,9 +87,11 @@ function Footer() {
           content: form.comment,
         }),
       });
+      // Show success or error message
       setMsg(
-        res.ok ? " Thank you for your comment!" : "Failed to submit comment."
+        res.ok ? "Thank you for your comment!" : "Failed to submit comment."
       );
+      // Clear form if successful
       if (res.ok) setForm({ name: "", email: "", comment: "" });
     } catch {
       setMsg("Failed to submit comment.");
@@ -111,15 +126,18 @@ function Footer() {
           <br />
           <button type="submit">Submit</button>
         </form>
+
         {msg && <p>{msg}</p>}
-      </div>
-      <div className="footer-box contact-box">
-        <h3>Please Contact Us</h3>
-        <ul>
-          <li>123 Sloan lane, Las Vegas, NV, 66677</li>
-        </ul>
-        <p>Phone Number: 123-123-123</p>
-        <p>Email: example@gmail.com</p>
+
+        <div className="comments-list">
+          <h4>Recent Comments</h4>
+          {comments.map((c) => (
+            <div key={c.id} className="single-comment">
+              <strong>{c.name}:</strong>
+              <span> {c.content}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
