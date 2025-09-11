@@ -3,6 +3,7 @@ package com.healthylifestyle.blogapi.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,4 +33,5 @@ public class CommentsController {
     public List<Comments> getAllComments(){
         return commentsRepository.findAll();
     }
+
 }

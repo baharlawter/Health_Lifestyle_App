@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Shop from "./components/Shop/Shop";
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import ListOfMeals from "./components/Shop/Shop";
+// import Footer from "./components/Footer/Footer";
+
 import About from "./components/About/About";
 import Api from "./components/Api/Api";
 import BlogDetail from "./components/Home/Blogs/BlogDetail";
@@ -28,7 +28,7 @@ function App() {
             <Route path="/blog/:id" element={<BlogDetail />} />
           </Routes>
 
-          <Footer />
+          {/* <Footer /> */}
           <footer>© Copyright All rights reserved</footer>
         </div>
       </BrowserRouter>
