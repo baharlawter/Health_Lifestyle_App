@@ -10,19 +10,23 @@ function Shop() {
     fetch("http://localhost:8081/api/books")
       .then((res) => res.json())
       .then((data) => {
-        console.log("API data:", data);
         setBooks(Array.isArray(data) ? data : data.books || []);
       })
       .catch((err) => console.error("Error fetching books", err));
   }, []);
-
+  //this adds to the cart
   function addToCart(book) {
     setCart([...cart, book]);
   }
-
-  function deleteCart(book) {
-    setCart(cart.filter((item) => item.title !== book.title));
+  //this function removes
+  function removeFromCart(book) {
+    const index = cart.findIndex((item) => item.title === book.title);
+    if (index !== -1) {
+      setCart([...cart.slice(0, index), ...cart.slice(index + 1)]);
+    }
   }
+
+  const total = cart.reduce((sum, book) => sum + Number(book.price), 0);
 
   return (
     <>
@@ -35,15 +39,30 @@ function Shop() {
             author={book.author}
             image={book.urlImage}
             price={book.price}
-            // I can add more props later
             onAdd={() => addToCart(book)}
-            onDelete={() => deleteCart(book)}
+            onDelete={() => removeFromCart(book)}
           />
         ))}
       </div>
-      <div>
-        <h3 className="cart-element">🛒 Cart: {cart.length} </h3>
-        <button>CheckOut</button>
+      <div className="cart-section">
+        <h3 className="cart-element">🛒 Cart: {cart.length}</h3>
+        <ul className="cart-list">
+          {cart.map((book, idx) => (
+            <li key={idx}>
+              <div>
+                <strong>{book.title}</strong> by {book.author} —{" "}
+                <span>${Number(book.price).toFixed(2)}</span>
+                <button onClick={() => removeFromCart(book)}>Remove</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className="checkout-section">
+          <h4>Total: ${total.toFixed(2)}</h4>
+          <button onClick={() => alert("Checkout coming soon!")}>
+            CheckOut
+          </button>
+        </div>
       </div>
     </>
   );
