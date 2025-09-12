@@ -1,77 +1,12 @@
-Flex container for two columns .footer-flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 32px;
-  margin: 40px auto;
-  max-width: 1100px;
+.site-footer {
+  text-align: center;
+  margin-top: 32px;
+  color: #888;
+  font-size: 0.98rem;
 }
 
-.footer-box {
-  background: #f9f9f9;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  padding: 32px 24px;
-  width: 100%;
-  max-width: 450px;
-  min-width: 300px;
-  box-sizing: border-box;
-}
-
-.footer-flex-container {
-  align-items: stretch;
-}
-.comment-box form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.comment-box input,
-.comment-box textarea {
-  padding: 10px 12px;
-  border: 1px solid #b5b5b5;
-  border-radius: 8px;
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-  resize: none;
-}
-
-.comment-box textarea {
-  min-height: 80px;
-  font-family: inherit;
-}
-
-.comment-box button[type="submit"] {
-  background: #2d4a22;
-  color: #fff;
+.site-footer hr {
+  margin-bottom: 12px;
   border: none;
-  border-radius: 8px;
-  padding: 10px 0;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 8px;
-  transition: background 0.2s;
-}
-
-.comment-box button[type="submit"]:hover {
-  background: #3e6b35;
-}
-
-.comment-box p {
-  margin-top: 10px;
-}
-
-.contact-box ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 12px 0;
-}
-
-.contact-box li,
-.contact-box p {
-  font-size: 1rem;
-  color: #444;
-  margin-bottom: 4px;
+  border-top: 1px solid #e0e0e0;
 }

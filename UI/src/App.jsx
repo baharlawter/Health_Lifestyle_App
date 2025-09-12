@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Shop from "./components/Shop/Shop";
 import Header from "./components/Header/Header";
-// import Footer from "./components/Footer/Footer";
 
 import About from "./components/About/About";
 import Api from "./components/Api/Api";
 import BlogDetail from "./components/Home/Blogs/BlogDetail";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -26,10 +26,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/api" element={<Api />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
+            {/* <Route path="/comments" element={<Comments />} /> */}
           </Routes>
-
-          {/* <Footer /> */}
-          <footer>© Copyright All rights reserved</footer>
+          <Footer />
         </div>
       </BrowserRouter>
     </>
