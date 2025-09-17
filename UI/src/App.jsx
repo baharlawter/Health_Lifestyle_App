@@ -8,6 +8,7 @@ import About from "./components/About/About";
 import Api from "./components/Api/Api";
 import BlogDetail from "./components/Home/Blogs/BlogDetail";
 import Footer from "./components/Footer/Footer";
+import Comments from "./components/Comments/Comments";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/blog/:id" element={<BlogDetail />} />
             {/* <Route path="/comments" element={<Comments />} /> */}
           </Routes>
+          <Comments />
           <Footer />
         </div>
       </BrowserRouter>
