@@ -6,7 +6,24 @@
   margin: 1rem;
   width: 100%; 
 } */
+.shop-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+.book-container {
+  flex: 2;
+}
+
+.cart-section {
+  flex: 1;
+  max-width: 400px;
+  min-width: 280px;
+}
 .book-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
@@ -36,6 +53,99 @@
   text-align: left;
   font-size: 1.5rem;
   display: flex;
+}
+/* Cart Section */
+.cart-section {
+  max-width: 400px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #f8f8f8;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  position: relative;
+  z-index: 1;
+}
+
+.cart-element {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.cart-list {
+  max-height: 200px; /* Limit height */
+  overflow-y: auto; /* Scroll if too many items */
+  margin-bottom: 16px;
+}
+
+.cart-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-section {
+  margin-top: 18px;
+  padding: 18px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-section h4 {
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Checkout Form */
+.checkout-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkout-section input {
+  padding: 8px 12px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.checkout-section button[type="submit"] {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.checkout-section button[type="submit"]:hover {
+  background: #388e3c;
+}
+
+.checkout-section button[type="button"] {
+  background: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 8px 0;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+
+.checkout-section button[type="button"]:hover {
+  background: #bdbdbd;
 }
 
 @media (min-width: 480px) {
