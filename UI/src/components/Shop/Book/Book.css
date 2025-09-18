@@ -16,5 +16,9 @@
   display: flex;
   outline: none;
   justify-content: space-evenly;
-  margin-top: auto; 
+  margin-top: auto;
+}
+
+.bookInfo {
+  height: 25rem;
 }
