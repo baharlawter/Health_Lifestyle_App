@@ -6,7 +6,7 @@ function Header() {
     <header className="main-header">
       <div className="header-container">
         <Link to="/" className="logo">
-          Healthy Lifestyle
+          🥑 Healthy Lifestyle
         </Link>
         <nav className="main-nav">
           <NavLink to="/" end>

@@ -29,6 +29,8 @@ function AppContent() {
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+
+      {/* this only shows the commets in login page */}
       {location.pathname !== "/login" && <Comments />}
       <Footer />
     </div>
