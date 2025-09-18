@@ -18,7 +18,7 @@ function Login() {
       })
       .then((data) => {
         setError("");
-        // You can save user info or redirect here
+
         alert("Login successful!");
       })
       .catch(() => setError("Invalid username or password"));
