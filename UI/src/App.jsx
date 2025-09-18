@@ -14,26 +14,28 @@ function AppContent() {
   const location = useLocation();
 
   return (
-    <div className="app-container">
-      <Header />
-      <br />
-      <div className="page-title">
-        <h1>Healthy Living Starts Here</h1>
-        <h2>Made by: Bahar Lawter</h2>
-      </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/api" element={<Api />} />
-        <Route path="/blog/:id" element={<BlogDetail />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+    <>
+      <div className="app-container">
+        <Header />
+        <br />
+        <div className="page-title">
+          <h1>Healthy Living Starts Here</h1>
+          <h2>Made by: Bahar Lawter</h2>
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/api" element={<Api />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
 
-      {/* this only shows the commets in login page */}
-      {location.pathname !== "/login" && <Comments />}
-      <Footer />
-    </div>
+        {location.pathname !== "/login" && <Comments />}
+      </div>
+
+      {/* <Footer /> Footer outside app-container */}
+    </>
   );
 }
 
