@@ -33,8 +33,7 @@ function AppContent() {
 
         {location.pathname !== "/login" && <Comments />}
       </div>
-
-      {/* <Footer /> Footer outside app-container */}
+      <Footer />
     </>
   );
 }

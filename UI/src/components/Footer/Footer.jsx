@@ -1,19 +1,13 @@
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <>
       <footer className="main-footer">
-        <div className="footer-social">
-          <a href="#">
-            <span role="img" aria-label="Facebook">
-              📘
-            </span>
-          </a>
-        </div>
         <div className="footer-links">
           <Link to="/about">About Us</Link>
-          <Link to="/shop">Shop Our Recomended Books</Link>
+          <Link to="/shop">Shop Our Recommended Books</Link>
           <Link to="/api">Learn about food</Link>
           <Link to="/login">Login</Link>
         </div>
@@ -22,8 +16,8 @@ function Footer() {
         <hr />
         <p>&copy; {new Date().getFullYear()} Healthy Lifestyle App</p>
       </div>
-      <Footer />
     </>
   );
 }
+
 export default Footer;
