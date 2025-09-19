@@ -10,16 +10,23 @@ public class Comments {
     private Long id;
     private String name;
     private String email;
+    @Column(name = "rating")
+    private int rating;
+
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
+    
 
     // Default constructor required by JPA
     public Comments() {}
 
-    public Comments(String name, String email, String content) {
+    public Comments(String name, String email, int rating, String content) {
         this.name = name;
         this.email = email;
+        this.rating=rating;
         this.content = content;
+        
+
     }
 
     // Getters and setters
@@ -32,6 +39,11 @@ public class Comments {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
+ public int getRating(){return rating;}
+    public void setRating(int rating){this.rating=rating;}
+
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
+
+   
 }

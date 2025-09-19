@@ -2,16 +2,10 @@ package com.healthylifestyle.blogapi.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.healthylifestyle.blogapi.model.Comments;
 import com.healthylifestyle.blogapi.repository.CommentsRepository;
-
 
 @RestController
 @RequestMapping("/api/comments")
@@ -22,16 +16,15 @@ public class CommentsController {
         this.commentsRepository = commentsRepository;
     }
 
-    // POST: Save a new comment
+    // POST: Save a new comment (with rating)
     @PostMapping
     public Comments createComment(@RequestBody Comments comment){
         return commentsRepository.save(comment);
     }
 
-    // GET: Return all comments
+    // GET: Return all comments with reating
     @GetMapping
     public List<Comments> getAllComments(){
         return commentsRepository.findAll();
     }
-
 }
