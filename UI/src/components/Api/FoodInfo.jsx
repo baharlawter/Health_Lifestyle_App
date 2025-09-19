@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Api.css";
-function Api() {
+function FoodInfo() {
   const [data, setData] = useState(null);
   const [selectedFood, setSelectedFood] = useState("cheddar cheese");
 
@@ -14,7 +14,7 @@ function Api() {
     "broccoli",
     "oatmeal",
     "almonds",
-    "yogurt"
+    "yogurt",
   ];
 
   function getData() {
@@ -66,4 +66,4 @@ function Api() {
   );
 }
 
-export default Api;
+export default FoodInfo;
