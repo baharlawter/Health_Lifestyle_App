@@ -16,6 +16,7 @@ function Header() {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/api">Api</NavLink>
           <NavLink to="/login">Login</NavLink>
+          <NavLink to="/comments"> Leave Your Comments</NavLink>
         </nav>
       </div>
     </header>

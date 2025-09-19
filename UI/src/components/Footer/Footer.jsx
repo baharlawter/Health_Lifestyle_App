@@ -10,6 +10,8 @@ function Footer() {
           <Link to="/shop">Shop Our Recommended Books</Link>
           <Link to="/api">Learn about food</Link>
           <Link to="/login">Login</Link>
+          <Link to="/comments">Leave your Comments</Link>
+          <Link to="/">Blogs</Link>
         </div>
       </footer>
       <div className="site-footer">

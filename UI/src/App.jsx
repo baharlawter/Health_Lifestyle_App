@@ -11,7 +11,7 @@ import Comments from "./components/Comments/Comments";
 import Login from "./components/Login/Login";
 
 function AppContent() {
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <>
@@ -29,9 +29,10 @@ function AppContent() {
           <Route path="/api" element={<Api />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/comments" element={<Comments />} />
         </Routes>
 
-        {location.pathname !== "/login" && <Comments />}
+        {/* {location.pathname !== "/login" && <Comments />} */}
       </div>
       <Footer />
     </>

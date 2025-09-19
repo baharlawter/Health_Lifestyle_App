@@ -1,44 +1,67 @@
 .main-footer {
-  background: #f7f9fa;
-  padding: 2rem 1rem 1rem 1rem;
-  border-top: 1px solid #e0e0e0;
+  background: #222;
+  color: #f7f9fa;
+  padding: 2.5rem 0 1.5rem 0;
+  border-top: 2px solid #388e3c;
   font-family: "Inter", Arial, sans-serif;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-social a {
+  color: #f7f9fa;
+  font-size: 2rem;
+  transition: color 0.2s;
+}
+
+.footer-social a:hover {
+  color: #43a047;
 }
 
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
-  margin-bottom: 1.5rem;
+  gap: 3rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
 }
 
 .footer-links a {
-  color: #0d0e0d;
-  font-size: 1.08rem;
+  color: #f7f9fa;
+  font-size: 1.1rem;
   font-weight: 500;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
   transition: background 0.2s, color 0.2s;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  background: transparent;
+  border: 1px solid transparent;
 }
 
 .footer-links a:hover {
-  background: #e8f5e9;
-  color: #1b5e20;
+  background: #388e3c;
+  color: #fff;
+  border: 1px solid #43a047;
 }
 
 .site-footer {
   text-align: center;
-  margin-top: 1.5rem;
-  color: #555;
+  margin-top: 2rem;
+  color: #bdbdbd;
   font-size: 1rem;
+  letter-spacing: 0.5px;
 }
 
 .site-footer hr {
   border: none;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #388e3c;
   margin-bottom: 1rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
