@@ -3,7 +3,12 @@ import "./Comments.css";
 
 function Comments() {
   const [comments, setComments] = useState([]);
-  const [form, setForm] = useState({ name: "", email: "", content: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    content: "",
+    rating: 5,
+  });
 
   useEffect(() => {
     fetch("http://localhost:8081/api/comments")
@@ -21,7 +26,7 @@ function Comments() {
       .then((res) => res.json())
       .then((newComment) => {
         setComments([...comments, newComment]);
-        setForm({ name: "", email: "", content: "" });
+        setForm({ name: "", email: "", content: "", rating: 5 });
       });
   }
 
@@ -49,12 +54,29 @@ function Comments() {
           onChange={(e) => setForm({ ...form, content: e.target.value })}
           required
         />
+        <label>
+          Rating:
+          <select
+            value={form.rating}
+            onChange={(e) =>
+              setForm({ ...form, rating: Number(e.target.value) })
+            }
+            required
+          >
+            {[1, 2, 3, 4, 5].map((star) => (
+              <option key={star} value={star}>
+                {star} ⭐
+              </option>
+            ))}
+          </select>
+        </label>
         <button type="submit">Post Comment</button>
       </form>
       <div className="comments-list">
         {comments.map((c, idx) => (
           <div className="comment-card" key={c.id || idx}>
             <strong>{c.name}</strong>
+            <div>{"⭐".repeat(c.rating || 0)}</div>
             <p>{c.content}</p>
           </div>
         ))}
