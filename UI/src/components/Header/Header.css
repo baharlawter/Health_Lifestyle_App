@@ -12,6 +12,10 @@ nav a.active {
   z-index: 1000;
 }
 
+.main-nav a:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .header-container {
   max-width: 1200px;
   margin: 0 auto;

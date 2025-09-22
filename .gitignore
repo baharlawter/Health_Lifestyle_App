@@ -27,6 +27,7 @@ bin/
 out/
 *.bat
 *.sh
+*.env
 
 # Database files
 *.sqlite

@@ -8,7 +8,7 @@ function Footer() {
         <div className="footer-links">
           <Link to="/about">About Us</Link>
           <Link to="/shop">Shop Our Recommended Books</Link>
-          <Link to="/api">Nutrition</Link>
+          <Link to="/foodinfo">Nutrition</Link>
           <Link to="/login">Login</Link>
           <Link to="/comments">Leave Your Comments</Link>
           <Link to="/">Blogs</Link>
