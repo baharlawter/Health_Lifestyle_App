@@ -26,6 +26,7 @@ function Comments() {
       .then((res) => res.json())
       .then((newComment) => {
         setComments([...comments, newComment]);
+        //Resets the form to inital value
         setForm({ name: "", email: "", content: "", rating: 5 });
       });
   }
@@ -45,7 +46,7 @@ function Comments() {
           type="email"
           placeholder="Email"
           value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          onChange={(e) => setForm({ ...form, email: e.target.value })} //gets the current value of the input which is the email and updtates the form state
           required
         />
         <textarea
