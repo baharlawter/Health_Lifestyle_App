@@ -78,6 +78,7 @@ function Comments() {
           <div className="comment-card" key={c.id || idx}>
             <strong>{c.name}</strong>
             <div>{"⭐".repeat(c.rating || 0)}</div>
+
             <p>{c.content}</p>
           </div>
         ))}

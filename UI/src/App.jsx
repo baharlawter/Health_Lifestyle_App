@@ -4,7 +4,7 @@ import Home from "./components/Home/Home";
 import Shop from "./components/Shop/Shop";
 import Header from "./components/Header/Header";
 import About from "./components/About/About";
-import FoodInfo from "./components/Api/FoodInfo";
+import Nutrition from "./components/Nutrition/Nutrition";
 import BlogDetail from "./components/Home/Blogs/BlogDetail";
 import Footer from "./components/Footer/Footer";
 import Comments from "./components/Comments/Comments";
@@ -26,7 +26,7 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/about" element={<About />} />
-          <Route path="/foodinfo" element={<FoodInfo />} />
+          <Route path="/foodInfo" element={<Nutrition />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/comments" element={<Comments />} />
