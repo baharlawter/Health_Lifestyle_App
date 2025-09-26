@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Login.css";
 
 function Login() {
   const [form, setForm] = useState({ username: "", password: "" });
@@ -20,7 +21,7 @@ function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Username"
