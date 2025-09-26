@@ -3,7 +3,10 @@ import Register from "./Register/Register";
 
 function AuthPage() {
   return (
-    <div style={{ display: "flex", gap: "2rem", justifyContent: "center" }}>
+    <div
+      className="auth-container"
+      style={{ display: "flex", gap: "2rem", justifyContent: "center" }}
+    >
       <div>
         <h2>Login</h2>
         <Login />

@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
   const [form, setForm] = useState({ username: "", password: "" });
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -16,7 +18,11 @@ function Login() {
         if (res.ok) return res.json();
         throw new Error("Login failed");
       })
-      .then((user) => setMessage(`Welcome, ${user.username}!`))
+      .then((user) => {
+        setMessage(`Welcome, ${user.username}!`);
+
+        navigate("/"); // Redirect to homepage
+      })
       .catch(() => setMessage("Invalid username or password"));
   }
 
