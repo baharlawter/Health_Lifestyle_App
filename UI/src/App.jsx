@@ -8,7 +8,8 @@ import Nutrition from "./components/Nutrition/Nutrition";
 import BlogDetail from "./components/Home/Blogs/BlogDetail";
 import Footer from "./components/Footer/Footer";
 import Comments from "./components/Comments/Comments";
-import Login from "./components/Login/Login";
+// import Login from "./components/Login/Login";
+import AuthPage from "./components/AuthPage/AuthPage";
 
 function AppContent() {
   // const location = useLocation();
@@ -28,7 +29,7 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/foodInfo" element={<Nutrition />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/authPage" element={<AuthPage />} />
           <Route path="/comments" element={<Comments />} />
         </Routes>
 
