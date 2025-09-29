@@ -39,15 +39,6 @@ function Login() {
       .then((msg) => setMessage(msg));
   }
 
-  function handleDelete(e) {
-    e.preventDefault();
-    fetch(`http://localhost:8081/api/auth/delete/${form.username}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.text())
-      .then((msg) => setMessage(msg));
-  }
-
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <input
@@ -64,20 +55,8 @@ function Login() {
         onChange={(e) => setForm({ ...form, password: e.target.value })}
         required
       />
-      <input
-        type="email"
-        placeholder="Email (for update)"
-        value={form.email}
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-      />
+
       <button type="submit">Login</button>
-      <button type="button" onClick={handleUpdate}>
-        Update Account
-      </button>
-      <button type="button" onClick={handleDelete}>
-        Delete Account
-      </button>
-      <div>{message}</div>
     </form>
   );
 }
