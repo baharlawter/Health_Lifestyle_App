@@ -23,31 +23,32 @@ public class CommentsController {
         return commentsRepository.save(comment);
     }
 
-    // GET: Return all comments with reating
+    // GET: Return all comments with rating
     @GetMapping
     public List<Comments> getAllComments(){
         return commentsRepository.findAll();
     }
+
     // PUT: Update a comment by ID
     @PutMapping("/{id}")
-    public Comments updateComment(@PathVariable Long id, @RequestBody Comments updatedComment) {
+    public ResponseEntity<Comments> updateComment(@PathVariable Long id, @RequestBody Comments updatedComment) {
         Comments comment = commentsRepository.findById(id).orElse(null);
         if (comment == null) {
-            return null; 
+            return ResponseEntity.notFound().build();
         }
         comment.setText(updatedComment.getText());
         comment.setRating(updatedComment.getRating());
-        return commentsRepository.save(comment);
+        Comments savedComment = commentsRepository.save(comment);
+        return ResponseEntity.ok(savedComment);
     }
-   // DELETE: Delete a comment by ID
+
+    // DELETE: Delete a comment by ID
     @DeleteMapping("/{id}")
-    public ResponseEntity <String> deleteComment(@PathVariable Long id) {
+    public ResponseEntity<String> deleteComment(@PathVariable Long id) {
         if (!commentsRepository.existsById(id)){
-            return ResponseEntity.status(404).body("Comment not found")
+            return ResponseEntity.status(404).body("Comment not found");
         }
         commentsRepository.deleteById(id);
         return ResponseEntity.ok("Comment deleted successfully :)!");
     }
-
-
 }
