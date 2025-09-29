@@ -38,26 +38,4 @@ public class UserController {
         userRepository.save(user);
         return ResponseEntity.ok("User registered successfully");
     }
-    //this is handling delete request
-  @DeleteMapping("/delete/{username}")
-public ResponseEntity<String> deleteUser(@PathVariable String username) {
-    User user = userRepository.findByUsername(username);
-    if (user == null) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Username not found");
-    }
-    userRepository.delete(user);
-    return ResponseEntity.ok("User deleted successfully");
-}
-
-    @PutMapping("/update/{username}")
-public ResponseEntity<String> updateUser(@PathVariable String username, @RequestBody User updatedUser) {
-    User user = userRepository.findByUsername(username);
-    if (user == null) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
-    }
-    user.setEmail(updatedUser.getEmail());
-    user.setPassword(updatedUser.getPassword());
-    userRepository.save(user);
-    return ResponseEntity.ok("User updated successfully");
-    }
 }
