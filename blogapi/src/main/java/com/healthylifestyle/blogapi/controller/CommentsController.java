@@ -6,49 +6,45 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.healthylifestyle.blogapi.model.Comments;
-import com.healthylifestyle.blogapi.repository.CommentsRepository;
+import com.healthylifestyle.blogapi.service.CommentsService;
 
 @RestController
 @RequestMapping("/api/comments")
 public class CommentsController {
-    private final CommentsRepository commentsRepository;
+    private final CommentsService commentsService;
 
-    public CommentsController(CommentsRepository commentsRepository){
-        this.commentsRepository = commentsRepository;
+    public CommentsController(CommentsService commentsService){
+        this.commentsService = commentsService;
     }
 
-    // POST: Save a new comment (with rating)
-    @PostMapping
-    public Comments createComment(@RequestBody Comments comment){
-        return commentsRepository.save(comment);
-    }
-
-    // GET: Return all comments with rating
     @GetMapping
     public List<Comments> getAllComments(){
-        return commentsRepository.findAll();
+        return commentsService.getAllComments();
     }
 
-    // PUT: Update a comment by ID
+    @PostMapping
+    public Comments createComment(@RequestBody Comments comment){
+        return commentsService.savedComment(comment);
+    }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Comments> updateComment(@PathVariable Long id, @RequestBody Comments updatedComment) {
-        Comments comment = commentsRepository.findById(id).orElse(null);
+    public ResponseEntity<Comments> updateComment(@PathVariable Long id, @RequestBody Comments updateComment) {
+        Comments comment = commentsService.findById(id).orElse(null);
         if (comment == null) {
             return ResponseEntity.notFound().build();
         }
-        comment.setText(updatedComment.getText());
-        comment.setRating(updatedComment.getRating());
-        Comments savedComment = commentsRepository.save(comment);
+        comment.setContent(updateComment.getContent());
+        comment.setRating(updateComment.getRating());
+        Comments savedComment = commentsService.savedComment(comment);
         return ResponseEntity.ok(savedComment);
     }
 
-    // DELETE: Delete a comment by ID
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteComment(@PathVariable Long id) {
-        if (!commentsRepository.existsById(id)){
+        if (!commentsService.existsById(id)){
             return ResponseEntity.status(404).body("Comment not found");
         }
-        commentsRepository.deleteById(id);
+        commentsService.deleteById(id);
         return ResponseEntity.ok("Comment deleted successfully :)!");
     }
 }

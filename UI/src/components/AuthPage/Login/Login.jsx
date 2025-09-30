@@ -28,16 +28,16 @@ function Login() {
       .catch(() => setMessage("Invalid username or password"));
   }
 
-  function handleUpdate(e) {
-    e.preventDefault();
-    fetch(`http://localhost:8081/api/auth/update/${form.username}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: form.email, password: form.password }),
-    })
-      .then((res) => res.text())
-      .then((msg) => setMessage(msg));
-  }
+  // function handleUpdate(e) {
+  //   e.preventDefault();
+  //   fetch(`http://localhost:8081/api/auth/update/${form.username}`, {
+  //     method: "PUT",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ email: form.email, password: form.password }),
+  //   })
+  //     .then((res) => res.text())
+  //     .then((msg) => setMessage(msg));
+  // }
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>

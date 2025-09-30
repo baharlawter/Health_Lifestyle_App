@@ -2,56 +2,89 @@ import { useState, useEffect } from "react";
 import "./Comments.css";
 
 function Comments() {
+  // State for all comments
   const [comments, setComments] = useState([]);
+  // State for the form fields
   const [form, setForm] = useState({
     name: "",
     email: "",
     content: "",
     rating: 5,
   });
+  // State to track if we're editing a comment
   const [editingComment, setEditingComment] = useState(null);
 
+  // Load all comments when the page loads
   useEffect(() => {
+    getAllComments();
+  }, []);
+
+  // Get all comments from the server
+  function getAllComments() {
     fetch("http://localhost:8081/api/comments")
       .then((res) => res.json())
       .then((data) => setComments(data));
-  }, []);
+  }
 
+  // Add a new comment
+  function addComment() {
+    fetch("http://localhost:8081/api/comments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    })
+      .then((res) => res.json())
+      .then((newComment) => {
+        setComments([...comments, newComment]);
+        resetForm();
+      });
+  }
+
+  // Update an existing comment
+  function updateComment() {
+    fetch(`http://localhost:8081/api/comments/${editingComment.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    })
+      .then((res) => res.json())
+      .then((updatedComment) => {
+        setComments(
+          comments.map((c) => (c.id === updatedComment.id ? updatedComment : c))
+        );
+        setEditingComment(null);
+        resetForm();
+      });
+  }
+
+  // Delete a comment
+  function deleteComment(id) {
+    fetch(`http://localhost:8081/api/comments/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        setComments(comments.filter((c) => c.id !== id));
+        // If we were editing this comment, cancel edit mode
+        if (editingComment && editingComment.id === id) {
+          setEditingComment(null);
+          resetForm();
+        }
+      }
+    });
+  }
+
+  // When the form is submitted
   function handleSubmit(e) {
     e.preventDefault();
     if (editingComment) {
-      // Edit mode
-      fetch(`http://localhost:8081/api/comments/${editingComment.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      })
-        .then((res) => res.json())
-        .then((updatedComment) => {
-          setComments(
-            comments.map((c) =>
-              c.id === updatedComment.id ? updatedComment : c
-            )
-          );
-          setEditingComment(null);
-          setForm({ name: "", email: "", content: "", rating: 5 });
-        });
+      updateComment();
     } else {
-      // Add mode
-      fetch("http://localhost:8081/api/comments", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      })
-        .then((res) => res.json())
-        .then((newComment) => {
-          setComments([...comments, newComment]);
-          setForm({ name: "", email: "", content: "", rating: 5 });
-        });
+      addComment();
     }
   }
 
-  function handleEdit(comment) {
+  // When the "Edit" button is clicked
+  function startEdit(comment) {
     setEditingComment(comment);
     setForm({
       name: comment.name,
@@ -61,25 +94,18 @@ function Comments() {
     });
   }
 
-  function handleDelete(id) {
-    fetch(`http://localhost:8081/api/comments/${id}`, {
-      method: "DELETE",
-    }).then((res) => {
-      if (res.ok) {
-        setComments(comments.filter((c) => c.id !== id));
-        if (editingComment && editingComment.id === id) {
-          setEditingComment(null);
-          setForm({ name: "", email: "", content: "", rating: 5 });
-        }
-      }
-    });
+  // Cancel editing and reset the form
+  function cancelEdit() {
+    setEditingComment(null);
+    resetForm();
   }
 
-  function handleCancelEdit() {
-    setEditingComment(null);
+  // Reset the form fields to empty/default
+  function resetForm() {
     setForm({ name: "", email: "", content: "", rating: 5 });
   }
 
+  // Render the component
   return (
     <div className="comments-section">
       <h3>Comments</h3>
@@ -124,7 +150,7 @@ function Comments() {
           {editingComment ? "Update Comment" : "Post Comment"}
         </button>
         {editingComment && (
-          <button type="button" onClick={handleCancelEdit}>
+          <button type="button" onClick={cancelEdit}>
             Cancel Edit
           </button>
         )}
@@ -135,8 +161,8 @@ function Comments() {
             <strong>{c.name}</strong>
             <div>{"⭐".repeat(c.rating || 0)}</div>
             <p>{c.content}</p>
-            <button onClick={() => handleEdit(c)}>Edit</button>
-            <button onClick={() => handleDelete(c.id)}>Delete</button>
+            <button onClick={() => startEdit(c)}>Edit</button>
+            <button onClick={() => deleteComment(c.id)}>Delete</button>
           </div>
         ))}
       </div>

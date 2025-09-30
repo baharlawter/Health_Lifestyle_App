@@ -33,17 +33,6 @@ function About() {
           alt="about me page"
         />
       </main>
-      {/* <div className="bottom-container">
-        <div className="text ">
-          <h2>What We Do</h2>
-          <ul>
-            <li>Encourage Daily Movment </li>
-            <li>Promote Healthy Eating</li>
-            <li>Support Intermittent Fasting</li>
-            <li>Educate Impact of Added Sugar</li>
-          </ul>
-        </div>
-      </div> */}
     </div>
   );
 }

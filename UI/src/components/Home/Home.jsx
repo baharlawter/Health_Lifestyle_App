@@ -1,27 +1,7 @@
-// import React from "react";
-// import Card from "./Cards/Card";
-// import { CardArray } from "../../data/mockData";
-
-// function Home() {
-//   return (
-//     <div className="cards">
-//       {CardArray.map((card, index) => (
-//         <Card
-//           key={index}
-//           image={card.image}
-//           title={card.title}
-//           description={card.description}
-//         />
-//       ))}
-//     </div>
-//   );
-// }
-
-// export default Home;
-
 import React, { useEffect, useState } from "react";
 import Card from "./Cards/Card";
 
+//parent Home gets the data from api and saves to cards[]
 function Home() {
   const [cards, setCards] = useState([]);
   useEffect(() => {
@@ -31,6 +11,9 @@ function Home() {
       .catch((error) => console.error("Error fetching blog", error));
   }, []);
   return (
+    //fetches blog, sotres in cards, loops through array with .map()
+    // and renders one <Card/> for each blog
+
     <div className="cards">
       {cards.map((card, index) => (
         <Card

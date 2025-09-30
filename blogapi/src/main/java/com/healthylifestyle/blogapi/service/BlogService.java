@@ -3,16 +3,15 @@ package com.healthylifestyle.blogapi.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.stereotype.Service;
-
 import com.healthylifestyle.blogapi.model.Blog;
 import com.healthylifestyle.blogapi.repository.BlogRepository;
 
+
 @Service
 public class BlogService {
+    //dependency injection with a constructor
     private final BlogRepository blogRepository;
-
     public BlogService(BlogRepository blogRepository) {
         this.blogRepository = blogRepository;
     }
@@ -23,8 +22,6 @@ public class BlogService {
     }
 
        
-    
-
     public Optional<Blog> getBlogById(Long id) {
         return blogRepository.findById(id);
     }

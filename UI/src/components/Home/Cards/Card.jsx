@@ -2,11 +2,13 @@ import "./Card.css";
 
 import { useNavigate } from "react-router-dom";
 
+//child resves props from home and displays as blog card in UI
 function Card({ id, title = "", image = "", alt = "", description = "" }) {
   const navigate = useNavigate();
 
   return (
     <div
+      //this is navigating to different page with blog info
       className="card"
       onClick={() => {
         navigate(`/blog/${id}`);

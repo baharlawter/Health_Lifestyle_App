@@ -1,4 +1,5 @@
 .login-form {
+  animation: fadeIn 1s ease;
   max-width: 350px;
   margin: 40px auto;
   padding: 32px 24px;
@@ -9,6 +10,17 @@
   flex-direction: column;
   gap: 18px;
   width: 300px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .login-form input {
