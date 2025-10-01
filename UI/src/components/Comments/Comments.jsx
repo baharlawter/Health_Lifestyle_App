@@ -108,7 +108,7 @@ function Comments() {
   // Render the component
   return (
     <div className="comments-section">
-      <h3>Comments</h3>
+      <h3>Leave Your Comments</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
