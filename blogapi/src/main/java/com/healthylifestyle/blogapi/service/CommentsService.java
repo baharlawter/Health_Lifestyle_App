@@ -11,27 +11,28 @@ import com.healthylifestyle.blogapi.repository.CommentsRepository;
 @Service
 public class CommentsService {
     
-    private final CommentsRepository commentsRepository ;
-    public CommentsService (CommentsRepository commentsRepository){
-        this.commentsRepository=commentsRepository;
+    private final CommentsRepository commentsRepository;
+    public CommentsService(CommentsRepository commentsRepository){
+        this.commentsRepository = commentsRepository;
     }
-    public List <Comments> getAllComments(){
+
+    public List<Comments> getAllComments(){
         return commentsRepository.findAll();
     }
-    public Optional < Comments> getCommentsById( Long id){
+
+    public Optional<Comments> findById(Long id){
         return commentsRepository.findById(id);
-
     }
-    public Comments savedComment (Comments comment){
-        return CommentsRepository.saveComment(comment);
 
+    public Comments savedComment(Comments comment){
+        return commentsRepository.save(comment);
     }
-    public void deleteComment(Long id){
+
+    public void deleteById(Long id){
         commentsRepository.deleteById(id);
     }
    
-public boolean existsById(Long id) {
-    return commentsRepository.existsById(id);
-}
-
+    public boolean existsById(Long id) {
+        return commentsRepository.existsById(id);
+    }
 }
