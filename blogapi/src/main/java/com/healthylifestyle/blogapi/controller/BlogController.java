@@ -1,4 +1,4 @@
-package com.healthylifestyle.blogapi.controller;
+package com.healthylifestyle.BackEnd.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.healthylifestyle.blogapi.model.Blog;
-import com.healthylifestyle.blogapi.service.BlogService;
+import com.healthylifestyle.BackEnd.model.Blog;
+import com.healthylifestyle.BackEnd.service.BlogService;
 
 @RestController
 @RequestMapping("/api/blogs")

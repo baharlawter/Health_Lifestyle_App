@@ -1,11 +1,11 @@
-package com.healthylifestyle.blogapi.service;
+package com.healthylifestyle.BackEnd.service;
 
 
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-import com.healthylifestyle.blogapi.model.Blog;
-import com.healthylifestyle.blogapi.repository.BlogRepository;
+import com.healthylifestyle.BackEnd.model.Blog;
+import com.healthylifestyle.BackEnd.repository.BlogRepository;
 
 
 @Service

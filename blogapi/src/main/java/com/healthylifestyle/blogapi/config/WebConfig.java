@@ -1,4 +1,4 @@
-package com.healthylifestyle.blogapi.config;
+package com.healthylifestyle.BackEnd.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

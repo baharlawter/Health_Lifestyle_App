@@ -1,8 +1,8 @@
-package com.healthylifestyle.blogapi.repository;
+package com.healthylifestyle.BackEnd.repository;
 
 
 
-import com.healthylifestyle.blogapi.model.Book;
+import com.healthylifestyle.BackEnd.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

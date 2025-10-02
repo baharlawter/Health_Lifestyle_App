@@ -1,12 +1,12 @@
-package com.healthylifestyle.blogapi.controller;
+package com.healthylifestyle.BackEnd.controller;
 
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.healthylifestyle.blogapi.model.Comments;
-import com.healthylifestyle.blogapi.service.CommentsService;
+import com.healthylifestyle.BackEnd.model.Comments;
+import com.healthylifestyle.BackEnd.service.CommentsService;
 
 @RestController
 @RequestMapping("/api/comments")

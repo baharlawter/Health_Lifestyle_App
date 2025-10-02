@@ -5,8 +5,8 @@
       "type": "java",
       "name": "Launch API (Spring Boot)",
       "request": "launch",
-      "mainClass": "com.healthylifestyle.blogapi.BlogapiApplication",
-      "projectName": "blogapi"
+      "mainClass": "com.healthylifestyle.BackEnd.BackEndApplication",
+      "projectName": "BackEnd"
     },
     {
       "type": "node",

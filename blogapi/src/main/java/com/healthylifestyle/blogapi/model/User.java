@@ -1,4 +1,4 @@
-package com.healthylifestyle.blogapi.model;
+package com.healthylifestyle.BackEnd.model;
 
 import jakarta.persistence.*;
 

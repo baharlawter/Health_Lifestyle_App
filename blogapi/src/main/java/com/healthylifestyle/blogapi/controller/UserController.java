@@ -1,13 +1,13 @@
-package com.healthylifestyle.blogapi.controller;
+package com.healthylifestyle.BackEnd.controller;
 import java.util.*;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.healthylifestyle.blogapi.model.User; 
+import com.healthylifestyle.BackEnd.model.User; 
 
-import com.healthylifestyle.blogapi.service.UserService;
+import com.healthylifestyle.BackEnd.service.UserService;
 
 @RestController
 //All endpoints

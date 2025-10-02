@@ -8,10 +8,10 @@
         <version>3.5.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.healthylifestyle.blogapi</groupId>
-    <artifactId>blogapi</artifactId>
+    <groupId>com.healthylifestyle.BackEnd</groupId>
+    <artifactId>BackEnd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>blogapi</name>
+    <name>BackEnd</name>
     <description>Demo project for Spring Boot</description>
     <url/>
     <licenses>

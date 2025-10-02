@@ -1,13 +1,13 @@
-package com.healthylifestyle.blogapi;
+package com.healthylifestyle.BackEnd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlogapiApplication {
+public class BackEndApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlogapiApplication.class, args);
+		SpringApplication.run(BackEndApplication.class, args);
 	}
 
 }

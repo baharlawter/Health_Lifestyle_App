@@ -1,5 +1,5 @@
-package com.healthylifestyle.blogapi.repository;
-import com.healthylifestyle.blogapi.model.Comments;
+package com.healthylifestyle.BackEnd.repository;
+import com.healthylifestyle.BackEnd.model.Comments;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CommentsRepository extends JpaRepository<Comments, Long> {

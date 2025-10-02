@@ -1,9 +1,9 @@
-package com.healthylifestyle.BackEnd.service;
+package com.healthylifestyle.UI.service;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-import com.healthylifestyle.BackEnd.model.Comments;
-import com.healthylifestyle.BackEnd.repository.CommentsRepository;
+import com.healthylifestyle.UI.model.Comments;
+import com.healthylifestyle.UI.repository.CommentsRepository;
 
 
 @Service
