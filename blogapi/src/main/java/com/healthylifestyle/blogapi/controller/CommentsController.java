@@ -10,6 +10,7 @@ import com.healthylifestyle.blogapi.service.CommentsService;
 
 @RestController
 @RequestMapping("/api/comments")
+@CrossOrigin(origins = "http://localhost:5173")
 public class CommentsController {
     private final CommentsService commentsService;
 
@@ -28,23 +29,28 @@ public class CommentsController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Comments> updateComment(@PathVariable Long id, @RequestBody Comments updateComment) {
-        Comments comment = commentsService.findById(id).orElse(null);
-        if (comment == null) {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> updateComment(
+            @PathVariable Long id,
+            @RequestBody Comments updateComment) {
+        try {
+            Comments savedComment = commentsService.updateComment(id, updateComment);
+            if (savedComment == null) return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(savedComment);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(403).body(e.getMessage());
         }
-        comment.setContent(updateComment.getContent());
-        comment.setRating(updateComment.getRating());
-        Comments savedComment = commentsService.savedComment(comment);
-        return ResponseEntity.ok(savedComment);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteComment(@PathVariable Long id) {
-        if (!commentsService.existsById(id)){
-            return ResponseEntity.status(404).body("Comment not found");
+    public ResponseEntity<String> deleteComment(
+            @PathVariable Long id,
+            @RequestParam String email) {
+        try {
+            boolean deleted = commentsService.deleteComment(id, email);
+            if (!deleted) return ResponseEntity.status(404).body("Comment not found");
+            return ResponseEntity.ok("Comment deleted successfully :)!");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(403).body(e.getMessage());
         }
-        commentsService.deleteById(id);
-        return ResponseEntity.ok("Comment deleted successfully :)!");
     }
 }

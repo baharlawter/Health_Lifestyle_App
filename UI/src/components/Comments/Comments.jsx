@@ -11,15 +11,14 @@ function Comments() {
     content: "",
     rating: 5,
   });
-  // State to track if we're editing a comment
-  const [editingComment, setEditingComment] = useState(null);
 
+  const [editingComment, setEditingComment] = useState(null);
   // Load all comments when the page loads
   useEffect(() => {
     getAllComments();
   }, []);
 
-  // Get all comments from the server
+  // Get all comments from the api
   function getAllComments() {
     fetch("http://localhost:8081/api/comments")
       .then((res) => res.json())
@@ -45,32 +44,41 @@ function Comments() {
     fetch(`http://localhost:8081/api/comments/${editingComment.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify(form), // form includes email
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("You can only edit your own comment");
+        }
+        return res.json();
+      })
       .then((updatedComment) => {
         setComments(
           comments.map((c) => (c.id === updatedComment.id ? updatedComment : c))
         );
         setEditingComment(null);
         resetForm();
-      });
+      })
+      .catch((err) => alert(err.message));
   }
 
   // Delete a comment
-  function deleteComment(id) {
-    fetch(`http://localhost:8081/api/comments/${id}`, {
+  function deleteComment(id, email) {
+    fetch(`http://localhost:8081/api/comments/${id}?email=${email}`, {
       method: "DELETE",
-    }).then((res) => {
-      if (res.ok) {
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("You can only delete your own comment");
+        return res.text();
+      })
+      .then(() => {
         setComments(comments.filter((c) => c.id !== id));
-        // If we were editing this comment, cancel edit mode
         if (editingComment && editingComment.id === id) {
           setEditingComment(null);
           resetForm();
         }
-      }
-    });
+      })
+      .catch((err) => alert(err.message));
   }
 
   // When the form is submitted
@@ -162,7 +170,7 @@ function Comments() {
             <div>{"⭐".repeat(c.rating || 0)}</div>
             <p>{c.content}</p>
             <button onClick={() => startEdit(c)}>Edit</button>
-            <button onClick={() => deleteComment(c.id)}>Delete</button>
+            <button onClick={() => deleteComment(c.id, c.email)}>Delete</button>
           </div>
         ))}
       </div>
