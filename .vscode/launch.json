@@ -6,7 +6,8 @@
       "name": "Launch API (Spring Boot)",
       "request": "launch",
       "mainClass": "com.healthylifestyle.blogapi.BlogapiApplication",
-      "projectName": "blogapi"
+      "projectName": "blogapi",
+      "cwd": "${workspaceFolder}/BackEnd"
     },
     {
       "type": "node",
