@@ -33,7 +33,6 @@ out/
 *.sqlite
 *.db
 *.db3
-*.sql
 *.h2.db
 *.mv.db
 *.ldb
