@@ -12,7 +12,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch UI (npm start)",
-      "cwd": "${workspaceFolder}/ui",
+      "cwd": "${workspaceFolder}/FrontEnd",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "console": "integratedTerminal"
