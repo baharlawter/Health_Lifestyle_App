@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Comments from "./components/Comments/Comments";
 // import Login from "./components/Login/Login";
 import AuthPage from "./components/AuthPage/AuthPage";
-
+import Gemini from "./components/Gemini/Gemini";
 function AppContent() {
   // const location = useLocation();
 
@@ -31,6 +31,7 @@ function AppContent() {
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/authPage" element={<AuthPage />} />
           <Route path="/comments" element={<Comments />} />
+          <Route path="/gemini" element={Gemini} />
         </Routes>
 
         {/* {location.pathname !== "/login" && <Comments />} */}
