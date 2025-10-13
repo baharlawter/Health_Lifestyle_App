@@ -1,4 +1,3 @@
-// filepath: /Users/josephlawter/Desktop/Health_Lifestyle_App/BackEnd/src/main/java/com/healthylifestyle/blogapi/service/GeminiService.java
 package com.healthylifestyle.blogapi.service;
 
 import org.springframework.stereotype.Service;
@@ -31,7 +30,8 @@ public class GeminiService {
         }
         
         try {
-            String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey;
+            // Updated model name to gemini-1.5-flash
+            String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + apiKey;
             
             String requestBody = "{\"contents\":[{\"parts\":[{\"text\":\"" + prompt.replace("\"", "\\\"") + "\"}]}]}";
             
