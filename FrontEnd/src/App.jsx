@@ -31,7 +31,7 @@ function AppContent() {
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/authPage" element={<AuthPage />} />
           <Route path="/comments" element={<Comments />} />
-          <Route path="/gemini" element={Gemini} />
+          <Route path="/gemini" element={<Gemini />} />
         </Routes>
 
         {/* {location.pathname !== "/login" && <Comments />} */}

@@ -1,30 +1,6 @@
 import React, { useState } from "react";
 
-// Remove the GoogleGenAI import and ai initialization
-// export async function generateContent(prompt) {
-//   // Call your backend instead
-//   try {
-//     const response = await fetch('http://localhost:8080/api/gemini/generate', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({ prompt: prompt }),
-//     });
-//
-//     if (!response.ok) {
-//       throw new Error('Failed to generate content');
-//     }
-//
-//     const result = await response.text();
-//     return result;
-//   } catch (error) {
-//     console.error("Error generating content:", error);
-//     throw error;
-//   }
-// }
-
-const Gemini = () => {
+function Gemini() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
@@ -34,7 +10,7 @@ const Gemini = () => {
 
     setLoading(true);
     try {
-      // Call  backend API instead of Gemini directly
+      // Call your backend API
       const result = await fetch("http://localhost:8080/api/gemini/generate", {
         method: "POST",
         headers: {
@@ -77,6 +53,6 @@ const Gemini = () => {
       )}
     </div>
   );
-};
+}
 
 export default Gemini;
