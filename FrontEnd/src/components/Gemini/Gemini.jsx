@@ -10,8 +10,8 @@ function Gemini() {
 
     setLoading(true);
     try {
-      // Call your backend API
-      const result = await fetch("http://localhost:8080/api/gemini/generate", {
+      // Updated to port 8081
+      const result = await fetch("http://localhost:8081/api/gemini/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
