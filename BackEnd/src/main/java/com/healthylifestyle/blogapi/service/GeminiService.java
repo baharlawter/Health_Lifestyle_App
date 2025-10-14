@@ -1,54 +1,36 @@
 package com.healthylifestyle.blogapi.service;
 
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentResponse;
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JsonNode;
 
 @Service
 public class GeminiService {
     
-    @Value("${GEMINI_API_KEY:}")
-    private String apiKey;
-    
-    private final RestTemplate restTemplate;
-    private final ObjectMapper objectMapper;
+    private final Client client;
     
     public GeminiService() {
-        this.restTemplate = new RestTemplate();
-        this.objectMapper = new ObjectMapper();
+        // Client automatically reads GEMINI_API_KEY environment variable
+        this.client = new Client();
     }
     
     public String generateContent(String prompt) {
-        if (apiKey.isEmpty()) {
-            return "Error: GEMINI_API_KEY not configured";
-        }
+        System.out.println("=== DEBUG INFO ===");
+        System.out.println("Prompt received: " + prompt);
         
         try {
-            // Updated model name to gemini-1.5-flash
-            String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + apiKey;
+            GenerateContentResponse response = client.models.generateContent(
+                "gemini-1.5-flash",
+                prompt,
+                null
+            );
             
-            String requestBody = "{\"contents\":[{\"parts\":[{\"text\":\"" + prompt.replace("\"", "\\\"") + "\"}]}]}";
-            
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            
-            HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);
-            ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
-            
-            JsonNode jsonNode = objectMapper.readTree(response.getBody());
-            return jsonNode.path("candidates").get(0)
-                          .path("content").path("parts").get(0)
-                          .path("text").asText();
-                          
+            return response.text();
         } catch (Exception e) {
+            System.out.println("=== ERROR DEBUG ===");
+            System.out.println("Error message: " + e.getMessage());
+            e.printStackTrace();
             return "Error generating content: " + e.getMessage();
         }
     }
 }
-

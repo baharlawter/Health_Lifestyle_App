@@ -17,12 +17,13 @@ public class GeminiController {
     
     @PostMapping("/generate")
     public String generateContent(@RequestBody Map<String, String> request) {
+        System.out.println("POST request received: " + request);
         String prompt = request.get("prompt");
         if (prompt == null || prompt.trim().isEmpty()) {
             return "Error: No prompt provided";
         }
         try {
-            return geminiService.generateText(prompt);
+            return geminiService.generateContent(prompt);
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
