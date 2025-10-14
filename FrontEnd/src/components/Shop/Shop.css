@@ -1,4 +1,4 @@
-.shop-main {
+/* .shop-main {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
@@ -15,7 +15,7 @@
 .book-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-  gap: 1rem;
+  /* gap: 5rem; */
   padding: 1rem;
   width: 100%;
   max-width: 100vw;
@@ -375,5 +375,148 @@
 
   .checkout-section button[type="button"]:hover {
     background: #bdbdbd;
+  }
+} */
+.book {
+  width: 12rem; /* Increased from 10rem */
+  min-height: 24rem; /* Increased from 20rem and made flexible */
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.book img {
+  width: 100%;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.8rem;
+}
+
+.book h3 {
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 0 0 0.5rem 0;
+  min-height: 2.5rem; /* Reserve space for 2 lines of title */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-author {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+  margin: 0 0 0.8rem 0;
+  min-height: 1rem;
+}
+
+.book-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.bookInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.add-delete-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+
+.add-delete-buttons button {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-delete-buttons button:first-child {
+  background-color: #4caf50;
+  color: white;
+}
+
+.add-delete-buttons button:first-child:hover {
+  background-color: #45a049;
+}
+
+.add-delete-buttons button:last-child {
+  background-color: #d06c64;
+  color: white;
+}
+
+.add-delete-buttons button:last-child:hover {
+  background-color: #df8f89;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .book {
+    width: 11rem;
+    min-height: 22rem;
+  }
+  
+  .book h3 {
+    font-size: 0.85rem;
+  }
+  
+  .book-author {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book {
+    width: 10rem;
+    min-height: 20rem;
+    padding: 0.8rem;
+  }
+  
+  .book h3 {
+    font-size: 0.8rem;
+    min-height: 2rem;
+  }
+  
+  .book-author {
+    font-size: 0.7rem;
+  }
+  
+  .book-price {
+    font-size: 0.9rem;
+  }
+  
+  .add-delete-buttons button {
+    padding: 0.4rem;
+    font-size: 0.75rem;
   }
 }
