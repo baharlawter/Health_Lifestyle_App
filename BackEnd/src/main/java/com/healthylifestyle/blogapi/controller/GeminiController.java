@@ -1,7 +1,6 @@
 package com.healthylifestyle.blogapi.controller;
 
 import com.healthylifestyle.blogapi.service.GeminiService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
@@ -22,7 +21,11 @@ public class GeminiController {
         if (prompt == null || prompt.trim().isEmpty()) {
             return "Error: No prompt provided";
         }
-        return geminiService.generateContent(prompt);
+        try {
+            return geminiService.generateText(prompt);
+        } catch (Exception e) {
+            return "Error: " + e.getMessage();
+        }
     }
     
     @GetMapping("/test")
