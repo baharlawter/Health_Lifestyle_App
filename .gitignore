@@ -27,12 +27,12 @@ bin/
 out/
 *.bat
 *.sh
+*.env
 
 # Database files
 *.sqlite
 *.db
 *.db3
-*.sql
 *.h2.db
 *.mv.db
 *.ldb

@@ -6,13 +6,14 @@
       "name": "Launch API (Spring Boot)",
       "request": "launch",
       "mainClass": "com.healthylifestyle.blogapi.BlogapiApplication",
-      "projectName": "blogapi"
+      "projectName": "blogapi",
+      "cwd": "${workspaceFolder}/BackEnd"
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Launch UI (npm start)",
-      "cwd": "${workspaceFolder}/ui",
+      "cwd": "${workspaceFolder}/FrontEnd",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "console": "integratedTerminal"
