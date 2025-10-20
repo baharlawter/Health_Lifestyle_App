@@ -10,13 +10,13 @@ public class GeminiService {
     private final Client client;
     
     public GeminiService() {
-        // Client automatically reads GEMINI_API_KEY environment variable
         this.client = new Client();
     }
     
     public String generateContent(String prompt) {
-        System.out.println("=== DEBUG INFO ===");
-        System.out.println("Prompt received: " + prompt);
+        if (prompt == null || prompt.trim().isEmpty()) {
+            return "Error: No prompt provided";
+        }
         
         try {
             GenerateContentResponse response = client.models.generateContent(
@@ -25,14 +25,9 @@ public class GeminiService {
                 null
             );
             
-            String result = response.text();
-            System.out.println("AI Response: " + result);
-            return result;
+            return response.text();
             
         } catch (Exception e) {
-            System.out.println("=== ERROR DEBUG ===");
-            System.out.println("Error message: " + e.getMessage());
-            e.printStackTrace();
             return "Error generating content: " + e.getMessage();
         }
     }
