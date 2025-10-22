@@ -1,4 +1,5 @@
 package com.healthylifestyle.blogapi.service;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
@@ -20,28 +21,40 @@ public class CommentsService {
         return commentsRepository.findById(id);
     }
     public Comments savedComment(Comments comment){
+        //for authentication set the user email when creating 
+        comment.setCreatedAt(LocalDateTime.now());
+        comment.setUpdatedAt(LocalDateTime.now());
         return commentsRepository.save(comment);
     }
     public void deleteById(Long id){
         commentsRepository.deleteById(id);
     }
    
+    //update method with authentication
+    public Comments updateComment(Long id, Comments updateComment,String userEmail) {
     
-    public Comments updateComment(Long id, Comments updateComment) {
-    Comments comment = commentsRepository.findById(id).orElse(null);
-    if (comment == null) return null;
-    if (!comment.getEmail().trim().equalsIgnoreCase(updateComment.getEmail().trim())) {
-        throw new IllegalArgumentException("You can only edit your own comments");
+    Comments existingComment=commentsRepository.findById(id).orElse(null);
+        // Comments comment = commentsRepository.findById(id).orElse(null);
+    // if (comment == null) return null;
+    if (!existingComment.isOwnedByEmail(userEmail)){
+        throw new IllegalArgumentException("You can only update our own comments");
     }
-    comment.setContent(updateComment.getContent());
-    comment.setRating(updateComment.getRating());
-    return commentsRepository.save(comment);
-}
+//     comment.setContent(updateComment.getContent());
+//     comment.setRating(updateComment.getRating());
+//     return commentsRepository.save(comment);
+// }
+existingComment.setContent(updateComment.getContent());
+existingComment.setRating(updateComment.getRating());
+existingComment.setUpdatedAt(LocalDateTime.now());
+return commentsRepository.save(existingComment);}
 
-public boolean deleteComment(Long id, String email) {
+//this is delet method with authentication
+
+public boolean deleteComment(Long id, String userEmail) {
     Comments comment = commentsRepository.findById(id).orElse(null);
     if (comment == null) return false;
-    if (!comment.getEmail().trim().equalsIgnoreCase(email.trim())) {
+    //this is checkin if the owner owns the comment
+    if (!comment.isOwnedByEmail(userEmail)){
         throw new IllegalArgumentException("You can only delete your own comments");
     }
     commentsRepository.deleteById(id);
