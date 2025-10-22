@@ -1,6 +1,6 @@
 package com.healthylifestyle.blogapi.model;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
@@ -67,4 +67,9 @@ public class Comments {
    public boolean isOwnedByEmail(String email){
     return this.userEmail!=null && this.userEmail.equals(email);
    }
+
+   public LocalDateTime getCreatedAt() { return this.createdAt; }
+   public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+   public LocalDateTime getUpdatedAt() { return this.updatedAt; }
+   public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 }
