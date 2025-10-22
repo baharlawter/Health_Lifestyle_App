@@ -15,7 +15,7 @@ import com.healthylifestyle.blogapi.service.BookService;
 public class BookController {
    
     private final BookService bookService;
-    //Spring will provide a BookSercve instance here
+    //dependency injection
     public BookController(BookService bookService){
         this.bookService=bookService;
 

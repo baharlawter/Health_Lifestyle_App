@@ -15,10 +15,7 @@
 //         this.geminiService = geminiService;
 //     }
     
-//     @GetMapping("/test")
-//     public String test() {
-//         return "Gemini API is working!";
-//     }
+
     
 //     @PostMapping("/generate")
 //     public String generateContent(@RequestBody Map<String, String> request) {

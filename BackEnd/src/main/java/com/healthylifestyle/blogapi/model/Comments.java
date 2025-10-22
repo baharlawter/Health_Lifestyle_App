@@ -15,6 +15,7 @@ public class Comments {
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
+  
     
 
     // Default constructor required by JPA
