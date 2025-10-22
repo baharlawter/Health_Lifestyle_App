@@ -10,6 +10,7 @@ import jakarta.persistence.*;
 public class Comments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id",nullable = false, updatable = false)
     private Long id;
     private String name;
     private String email;
