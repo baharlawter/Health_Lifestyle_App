@@ -1,4 +1,3 @@
-/* Base styles */
 .shop-main {
   padding: 1rem;
   min-height: 100vh;
@@ -13,7 +12,6 @@
   border-radius: 8px;
 }
 
-/* Book container grid */
 .book-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
@@ -22,7 +20,6 @@
   margin-bottom: 2rem;
 }
 
-/* Individual book styles */
 .book {
   width: 100%;
   min-height: 26rem;
@@ -128,7 +125,6 @@
   background-color: #da190b;
 }
 
-/* Cart section */
 .cart-section {
   background: #f8f8f8;
   border-radius: 12px;
@@ -166,7 +162,6 @@
   border-bottom: none;
 }
 
-/* Checkout section */
 .checkout-section {
   margin-top: 1.5rem;
   padding: 1.5rem;
@@ -234,43 +229,87 @@
   background: #bdbdbd;
 }
 
-/* Desktop layout */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .shop-main {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      "header header"
+      "books cart";
+    gap: 2rem;
+  }
+
+  .h2-element {
+    grid-area: header;
+    margin-bottom: 0;
   }
 
   .book-container {
-    flex: 2;
-    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-    gap: 1.5rem;
+    grid-area: books;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
   }
 
   .cart-section {
-    flex: 1;
-    max-width: 400px;
-    min-width: 320px;
+    grid-area: cart;
     margin: 0;
     position: sticky;
     top: 2rem;
+    max-width: 400px;
+    min-width: 320px;
   }
 
   .book {
-    min-height: 28rem;
+    min-height: 30rem;
   }
 
   .book img {
-    height: 12rem;
+    height: 13rem;
+  }
+
+  .book h3 {
+    font-size: 1.1rem;
   }
 }
 
-/* Tablet styles */
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .shop-main {
+    padding: 1.5rem;
+  }
+
+  .book-container {
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: 1.25rem;
+  }
+
+  .book {
+    min-height: 27rem;
+  }
+
+  .book img {
+    height: 11rem;
+  }
+
+  .book h3 {
+    font-size: 0.95rem;
+  }
+
+  .book-author {
+    font-size: 0.85rem;
+  }
+
+  .cart-section {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
   .book-container {
     grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
     gap: 1rem;
@@ -298,7 +337,6 @@
   }
 }
 
-/* Mobile styles */
 @media (max-width: 480px) {
   .shop-main {
     padding: 0.5rem;
