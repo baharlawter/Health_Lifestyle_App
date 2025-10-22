@@ -1,34 +1,34 @@
-// package com.healthylifestyle.blogapi.controller;
+package com.healthylifestyle.blogapi.controller;
 
-// import org.springframework.web.bind.annotation.RestController;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.CrossOrigin;
-// import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-// import java.util.Map;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
-// @RestController
-// @RequestMapping("/api/gemini")
+import java.util.Map;
 
-// public class GeminiController {
+@RestController
+@RequestMapping("/api/gemini")
+
+public class GeminiController {
     
-//     private final com.healthylifestyle.blogapi.service.GeminiService geminiService;
+    private final com.healthylifestyle.blogapi.service.GeminiService geminiService;
     
-//     public GeminiController(com.healthylifestyle.blogapi.service.GeminiService geminiService) {
-//         this.geminiService = geminiService;
-//     }
+    public GeminiController(com.healthylifestyle.blogapi.service.GeminiService geminiService) {
+        this.geminiService = geminiService;
+    }
     
     
-//     @PostMapping("/generate")
-//     public String generateContent(@RequestBody Map<String, String> request) {
-//         String prompt = request.get("prompt");
+    @PostMapping("/generate")
+    public String generateContent(@RequestBody Map<String, String> request) {
+        String prompt = request.get("prompt");
         
-//         if (prompt == null || prompt.trim().isEmpty()) {
-//             return "Error: No prompt provided";
-//         }
+        if (prompt == null || prompt.trim().isEmpty()) {
+            return "Error: No prompt provided";
+        }
         
-//         return geminiService.generateContent(prompt);
-//     }
+        return geminiService.generateContent(prompt);
+    }
     
-// }
+}

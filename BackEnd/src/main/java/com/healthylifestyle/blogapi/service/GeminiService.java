@@ -1,28 +1,28 @@
-// package com.healthylifestyle.blogapi.service;
+package com.healthylifestyle.blogapi.service;
 
-// import org.springframework.beans.factory.annotation.Value;
-// import org.springframework.stereotype.Service;
-// import org.springframework.web.reactive.function.client.WebClient;
-// import org.springframework.http.MediaType;
 
-// import java.util.Map;
-// import java.util.List;
+import org.springframework.stereotype.Service;
 
-// @Service
-// public class GeminiService {
+
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentResponse;
+
+
+@Service
+public class GeminiService {
     
-//     private final String apiKey;
-//     private final WebClient webClient;
-    
-//     public GeminiService(@Value("${GOOGLE_API_KEY}") String apiKey) {
-//         this.apiKey = apiKey;
-//         this.webClient = WebClient.builder()
+
+      Client client =new Client();
                 
-//     }
-    
-//     public String generateContent(String prompt) {
-//         if (prompt == null || prompt.trim().isEmpty()) {
-//             return "Please provide a prompt";
-//         }
-      
-// }
+    public String generateContent(String prompt) {
+        if (prompt == null || prompt.trim().isEmpty()) {
+
+
+            return "Please provide a prompt";
+
+        }
+      GenerateContentResponse response=client.models.generateContent("gemini-2.0-flash-001", prompt, null);
+      return response.text();
+
+    }
+}
