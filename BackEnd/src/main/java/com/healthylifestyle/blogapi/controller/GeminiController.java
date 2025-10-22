@@ -1,21 +1,24 @@
 // package com.healthylifestyle.blogapi.controller;
 
-// import com.healthylifestyle.blogapi.service.GeminiService;
-// import org.springframework.web.bind.annotation.*;
+// import org.springframework.web.bind.annotation.RestController;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.CrossOrigin;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RequestBody;
+
 // import java.util.Map;
 
 // @RestController
 // @RequestMapping("/api/gemini")
-// @CrossOrigin(origins = "*")
+
 // public class GeminiController {
     
-//     private final GeminiService geminiService;
-
-//     public GeminiController(GeminiService geminiService) {
+//     private final com.healthylifestyle.blogapi.service.GeminiService geminiService;
+    
+//     public GeminiController(com.healthylifestyle.blogapi.service.GeminiService geminiService) {
 //         this.geminiService = geminiService;
 //     }
     
-
     
 //     @PostMapping("/generate")
 //     public String generateContent(@RequestBody Map<String, String> request) {
@@ -27,4 +30,5 @@
         
 //         return geminiService.generateContent(prompt);
 //     }
+    
 // }
