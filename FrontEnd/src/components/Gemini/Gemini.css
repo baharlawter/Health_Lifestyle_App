@@ -1,0 +1,90 @@
+.gemini-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gemini-container h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.gemini-container textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.gemini-container textarea:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.gemini-container br {
+  display: none;
+}
+
+.gemini-container button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.gemini-container button:hover:not(:disabled) {
+  background: #45a049;
+}
+
+.gemini-container button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.response {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.response h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.response p {
+  margin: 0;
+  line-height: 1.5;
+  color: #555;
+  white-space: pre-wrap;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .gemini-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .gemini-container h2 {
+    font-size: 1.5rem;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./Gemini.css";
 function Gemini() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
