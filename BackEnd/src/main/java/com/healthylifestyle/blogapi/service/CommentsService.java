@@ -34,21 +34,17 @@ public class CommentsService {
     public Comments updateComment(Long id, Comments updateComment,String userEmail) {
     
     Comments existingComment=commentsRepository.findById(id).orElse(null);
-        // Comments comment = commentsRepository.findById(id).orElse(null);
-    // if (comment == null) return null;
+   
     if (!existingComment.isOwnedByEmail(userEmail)){
         throw new IllegalArgumentException("You can only update our own comments");
     }
-//     comment.setContent(updateComment.getContent());
-//     comment.setRating(updateComment.getRating());
-//     return commentsRepository.save(comment);
-// }
+
 existingComment.setContent(updateComment.getContent());
 existingComment.setRating(updateComment.getRating());
 existingComment.setUpdatedAt(LocalDateTime.now());
 return commentsRepository.save(existingComment);}
 
-//this is delet method with authentication
+//this is deletes method with authentication
 
 public boolean deleteComment(Long id, String userEmail) {
     Comments comment = commentsRepository.findById(id).orElse(null);

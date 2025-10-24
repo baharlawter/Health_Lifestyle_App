@@ -2,8 +2,6 @@ package com.healthylifestyle.blogapi.service;
 
 
 import org.springframework.stereotype.Service;
-
-
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
 
