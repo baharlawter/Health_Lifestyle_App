@@ -13,17 +13,6 @@
   width: 90%;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .login-form input {
   padding: 12px;
   border: 1px solid #d1d5db;
@@ -65,7 +54,6 @@
   text-align: center;
 }
 
-/* Auth container for stacking forms */
 .auth-container {
   display: flex;
   flex-direction: row;
@@ -123,45 +111,5 @@
 
   .login-form div {
     font-size: 0.9rem;
-  }
-}
-
-/* Very small phones */
-@media (max-width: 320px) {
-  .auth-container {
-    padding: 5px;
-    gap: 10px;
-  }
-
-  .login-form {
-    padding: 20px 12px;
-    gap: 14px;
-  }
-
-  .login-form input,
-  .login-form button {
-    padding: 10px 8px;
-    font-size: 0.9rem;
-  }
-
-  .login-form div {
-    font-size: 0.85rem;
-    margin-top: 6px;
-  }
-}
-
-/* Landscape mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-  .auth-container {
-    flex-direction: row;
-    gap: 20px;
-    overflow-x: auto;
-  }
-
-  .login-form {
-    margin: 10px 0;
-    max-height: 70vh;
-    overflow-y: auto;
-    min-width: 280px;
   }
 }
