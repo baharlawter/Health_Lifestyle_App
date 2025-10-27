@@ -47,14 +47,14 @@
   cursor: pointer;
 }
 
-.gemini-container button:hover:not(:disabled) {
+/* .gemini-container button:hover:not(:disabled) {
   background: #45a049;
 }
 
 .gemini-container button:disabled {
   background: #ccc;
   cursor: not-allowed;
-}
+} */
 
 .response {
   margin-top: 2rem;
@@ -63,6 +63,23 @@
   border: 1px solid #e0e0e0;
   border-radius: 6px;
 }
+/* .spinner {
+  border: 2px color(srgb rgb(93, 206, 129) green rgb(114, 222, 157));
+  border-radius: 50%;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+/* .generate-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
 
 .response h3 {
   margin: 0 0 1rem 0;

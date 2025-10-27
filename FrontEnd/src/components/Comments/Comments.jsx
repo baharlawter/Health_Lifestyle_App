@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Comments.css";
+import Register from "../AuthPage/Register/Register";
 
 function Comments() {
   const [comments, setComments] = useState([]);
@@ -71,28 +72,27 @@ function Comments() {
         console.error("Error updating comment:", error);
       });
   }
-
-  // function handleDeleteComment(id) {
-  //   fetch(`http://localhost:8081/api/comments/${id}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "User-Email": currentUserEmail,
-  //     },
-  //   })
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         setComments(comments.filter((c) => c.id !== id));
-  //       } else if (response.status === 403) {
-  //         alert("You can only delete your own comments!");
-  //       } else {
-  //         throw new Error("Delete failed");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error deleting comment:", error);
-  //       alert("Error deleting comment");
-  //     });
-  // }
+  function handleDeleteComment(id) {
+    fetch(`http://localhost:8081/api/comments/${id}`, {
+      method: "DELETE",
+      headers: {
+        "User-Email": currentUserEmail,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          setComments(comments.filter((c) => c.id !== id));
+        } else if (response.status === 403) {
+          alert("You can only delete your own comments!");
+        } else {
+          throw new Error("Delete failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting comment:", error);
+        alert("Error deleting comment");
+      });
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
