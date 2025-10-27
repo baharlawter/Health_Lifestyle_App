@@ -9,28 +9,27 @@ function About() {
           <p className="p1">
             <p className="p1">
               Hi, I'm Bahar Lawter! I always have been a health-conscious person
-              who loves to read new research and blogs about wellness. I enjoy
-              living a healthy lifestyle and practice intermittent fasting as
-              part of my wellness journey. As someone passionate about health
-              and technology, I decided to build a new app called Healthy
+              who loves reading new researched papers and blogs about health. I
+              enjoy living a healthy lifestyle and practice intermittent fasting
+              as a part of my wellness journey. As someone passionate about
+              health and technology, I decided to build a new app called Healthy
               Lifestyle App. This app has great features including a blogs page
-              where users can read the latest health research, purchase
+              where you can read the latest health research, purchase
               recommended books straight from the website, and use an AI
-              assistant page where they can enter a prompt and get fast answers
-              to their health-curious questions. Users can also leave comments
-              on posts to build a supportive community.
+              assistant where you can enter a prompt, and get fast answers to
+              your health-curious questions. You can also leave comments on
+              posts to build a supportive community.
             </p>
           </p>
           <h1>Our Goal</h1>
           <p>
-            My mission is to guide you toward a sustainable, joyful
-            lifestyle—one small step at a time. I believe that real change
-            happens through consistency, constantly educating by reading latest
-            resarch, and books. Whether you're quitting your sugar or training
-            intermmittent fasting, I'm here to celebrate every victory, big or
-            small. By blending expert insights with AI assistance and a
-            supportive community, I want to help you build—and stick with—habits
-            that last a lifetime.
+            My mission is to guide you toward a sustainable and joyful lifestyle
+            one small step at a time. I believe that real change happens through
+            consistency, and constantly educating yourself. Whether you're
+            quitting your sugar, or training intermmittent fasting, I'm here to
+            celebrate every victory, big or small. By blending expert insights
+            with AI assistance, and a supportive community, I want to help you
+            build—and stick with—habits that last a lifetime.
           </p>
         </div>
         <img
