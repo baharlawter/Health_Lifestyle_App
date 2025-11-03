@@ -55,8 +55,14 @@ The Health & Lifestyle App is a full-stack web application that helps users mana
 
 - **Unsolved Problems:**
 
-  - Some edge cases in user authentication may need more robust error handling.
+  - in user authentication may need better error handling.
   - Responsive design could be improved for very small screens.
+  - The checkout is set up only in UI. It is not legit. It does not take real credit card
+
+- **Setting Up GoogleGemini:**
+- Since I used VS code for the backend, the configuration was different to set up Google Gemini
+- I made a mistake of setting up backend, instead of getting Client from Google Gemini I was getting from Spring boot
+- It is fixed works fine
 
 - **Future Features:**
   - Add user profile pages.Extend it
