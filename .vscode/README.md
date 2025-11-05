@@ -2,14 +2,14 @@
 
 ## Project Description
 
-The Health & Lifestyle App is a full-stack web application that helps users manage their health and lifestyle habits. Users can register, log in, and interact with features such as posting comments and ratings about their experiences, purchase health books, and read blogs. The app is designed to be responsive and user-friendly, supporting CRUD operations for user accounts and comments.
+The Healthy Lifestyle App is a full-stack web application that informs users about healthy lifestyle and lifestyle habits. Users can register, log in, and interact with features such as posting comments and ratings about their experiences, purchase health books, and read blogs. The app is designed to be responsive and user-friendly, supporting CRUD operations for user accounts and comments.
 
 ---
 
 ## Technologies Used
 
-- **Frontend:** React, CSS (Flexbox)
-- **Backend:** Spring Boot (Java)
+- **Frontend:** React, HTML, JS, CSS ,VS Code
+- **Backend:** Spring Boot (Java), VS Code
 - **Database:** MySQL
 - **API Testing:** Postman
 
@@ -56,7 +56,8 @@ The Health & Lifestyle App is a full-stack web application that helps users mana
 - **Unsolved Problems:**
 
   - in user authentication may need better error handling.
-  - Responsive design could be improved for very small screens.
+  - Fasting Tracker could be impemented
+  - Better user friendly login where the user experience
   - The checkout is set up only in UI. It is not legit. It does not take real credit card
 
 - **Setting Up GoogleGemini:**

@@ -11,9 +11,8 @@ import Comments from "./components/Comments/Comments";
 // import Login from "./components/Login/Login";
 import AuthPage from "./components/AuthPage/AuthPage";
 import Gemini from "./components/Gemini/Gemini";
-function AppContent() {
-  // const location = useLocation();
 
+function AppContent() {
   return (
     <>
       <div className="app-container">
@@ -33,8 +32,6 @@ function AppContent() {
           <Route path="/comments" element={<Comments />} />
           <Route path="/gemini" element={<Gemini />} />
         </Routes>
-
-        {/* {location.pathname !== "/login" && <Comments />} */}
       </div>
       <Footer />
     </>
