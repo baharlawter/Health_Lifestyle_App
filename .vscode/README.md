@@ -2,14 +2,14 @@
 
 ## Project Description
 
-The Health & Lifestyle App is a full-stack web application that helps users manage their health and lifestyle habits. Users can register, log in, and interact with features such as posting comments and ratings about their experiences, purchase health books, and read blogs. The app is designed to be responsive and user-friendly, supporting CRUD operations for user accounts and comments.
+The Healthy Lifestyle App is a full-stack web application that informs users about healthy lifestyle and lifestyle habits. Users can register, log in, and interact with features such as posting comments and ratings about their experiences, purchase health books, and read blogs. The app is designed to be responsive and user-friendly, supporting CRUD operations for user accounts and comments.
 
 ---
 
 ## Technologies Used
 
-- **Frontend:** React, CSS (Flexbox)
-- **Backend:** Spring Boot (Java)
+- **Frontend:** React, HTML, JS, CSS ,VS Code
+- **Backend:** Spring Boot (Java), VS Code
 - **Database:** MySQL
 - **API Testing:** Postman
 
@@ -55,8 +55,15 @@ The Health & Lifestyle App is a full-stack web application that helps users mana
 
 - **Unsolved Problems:**
 
-  - Some edge cases in user authentication may need more robust error handling.
-  - Responsive design could be improved for very small screens.
+  - in user authentication may need better error handling.
+  - Fasting Tracker could be impemented
+  - Better user friendly login where the user experience
+  - The checkout is set up only in UI. It is not legit. It does not take real credit card
+
+- **Setting Up GoogleGemini:**
+- Since I used VS code for the backend, the configuration was different to set up Google Gemini
+- I made a mistake of setting up backend, instead of getting Client from Google Gemini I was getting from Spring boot
+- It is fixed works fine
 
 - **Future Features:**
   - Add user profile pages.Extend it

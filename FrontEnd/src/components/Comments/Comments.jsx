@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import "./Comments.css";
+import Register from "../AuthPage/Register/Register";
 
 function Comments() {
-  // State for all comments
   const [comments, setComments] = useState([]);
-  // State for the form fields
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -12,8 +11,7 @@ function Comments() {
     rating: 5,
   });
 
-  // Current user email (you'll need to get this from your auth system)
-  const [currentUserEmail, setCurrentUserEmail] = useState("user@example.com"); // Replace with actual user email
+  const [currentUserEmail, setCurrentUserEmail] = useState("user@example.com");
   const [editingComment, setEditingComment] = useState(null);
 
   // Load all comments when the page loads
@@ -21,103 +19,81 @@ function Comments() {
     getAllComments();
   }, []);
 
-  // Get all comments from the API
-  async function getAllComments() {
-    try {
-      const response = await fetch("http://localhost:8081/api/comments");
-      const data = await response.json();
-      setComments(data);
-    } catch (error) {
-      console.error("Error fetching comments:", error);
-    }
+  function getAllComments() {
+    const promise = fetch("http://localhost:8081/api/comments");
+    promise
+      .then((response) => response.json())
+      .then((data) => {
+        setComments(data);
+      })
+      .catch((error) => {
+        console.error("Error getting the comments:", error);
+      });
+    console.log(promise);
   }
 
-  // Add a new comment
-  async function addComment() {
-    try {
-      const response = await fetch("http://localhost:8081/api/comments", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...form,
-          userEmail: currentUserEmail, // Add userEmail for ownership tracking
-        }),
-      });
-
-      if (response.ok) {
-        const newComment = await response.json();
+  function addComment() {
+    fetch("http://localhost:8081/api/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...form,
+        userEmail: currentUserEmail,
+      }),
+    })
+      .then((response) => response.json())
+      .then((newComment) => {
         setComments([...comments, newComment]);
         resetForm();
-      } else {
-        alert("Error creating comment");
-      }
-    } catch (error) {
-      console.error("Error adding comment:", error);
-      alert("Error adding comment");
-    }
+      })
+      .catch((error) => console.error("Error:", error));
   }
 
-  // Update an existing comment
-  async function updateComment() {
-    try {
-      const response = await fetch(
-        `http://localhost:8081/api/comments/${editingComment.id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "User-Email": currentUserEmail,
-          },
-          body: JSON.stringify(form),
-        }
-      );
-
-      if (response.status === 403) {
-        alert("You can only update your own comments!");
-        return;
-      }
-
-      if (response.ok) {
-        const updatedComment = await response.json();
+  function updateComment() {
+    fetch(`http://localhost:8081/api/comments/${editingComment.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "User-Email": currentUserEmail,
+      },
+      body: JSON.stringify(form),
+    })
+      .then((response) => response.json())
+      .then((updatedComment) => {
         setComments(
           comments.map((c) => (c.id === updatedComment.id ? updatedComment : c))
         );
         setEditingComment(null);
         resetForm();
-      }
-    } catch (error) {
-      console.error("Error updating comment:", error);
-      alert("Error updating comment");
-    }
-  }
-
-  // Delete a comment
-  async function handleDeleteComment(id) {
-    try {
-      const response = await fetch(`http://localhost:8081/api/comments/${id}`, {
-        method: "DELETE",
-        headers: {
-          "User-Email": currentUserEmail,
-        },
+      })
+      .catch((error) => {
+        console.error("Error updating comment:", error);
       });
-
-      if (response.status === 403) {
-        alert("You can only delete your own comments!");
-        return;
-      }
-
-      if (response.ok) {
-        setComments(comments.filter((c) => c.id !== id));
-      }
-    } catch (error) {
-      console.error("Error deleting comment:", error);
-      alert("Error deleting comment");
-    }
+  }
+  function handleDeleteComment(id) {
+    fetch(`http://localhost:8081/api/comments/${id}`, {
+      method: "DELETE",
+      headers: {
+        "User-Email": currentUserEmail,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          setComments(comments.filter((c) => c.id !== id));
+        } else if (response.status === 403) {
+          alert("You can only delete your own comments!");
+        } else {
+          throw new Error("Delete failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting comment:", error);
+        alert("Error deleting comment");
+      });
   }
 
-  // When the form is submitted
   function handleSubmit(e) {
     e.preventDefault();
     if (editingComment) {
@@ -127,9 +103,7 @@ function Comments() {
     }
   }
 
-  // When the "Edit" button is clicked
   function startEdit(comment) {
-    // Check if user owns the comment
     if (comment.userEmail !== currentUserEmail) {
       alert("You can only edit your own comments!");
       return;
@@ -144,18 +118,15 @@ function Comments() {
     });
   }
 
-  // Cancel editing and reset the form
   function cancelEdit() {
     setEditingComment(null);
     resetForm();
   }
 
-  // Reset the form fields to empty/default
   function resetForm() {
     setForm({ name: "", email: "", content: "", rating: 5 });
   }
 
-  // Check if user owns the comment
   function isCommentOwner(comment) {
     return comment.userEmail === currentUserEmail;
   }
@@ -212,7 +183,6 @@ function Comments() {
         )}
       </form>
 
-      {/* Comments List */}
       <div className="comments-list">
         <h4>Comments ({comments.length})</h4>
         {comments.length === 0 ? (
@@ -225,7 +195,6 @@ function Comments() {
               <p>{comment.content}</p>
               <small>By: {comment.email}</small>
 
-              {/* Only show edit/delete buttons for comment owner */}
               {isCommentOwner(comment) && (
                 <div className="comment-actions">
                   <button onClick={() => startEdit(comment)}>Edit</button>

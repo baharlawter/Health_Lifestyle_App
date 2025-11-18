@@ -3,6 +3,7 @@ import Book from "./Book/Book";
 import { useState, useEffect } from "react";
 
 function Shop() {
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const [books, setBooks] = useState([]);
   const [cart, setCart] = useState([]);
   const [showPayment, setShowPayment] = useState(false);
@@ -32,7 +33,7 @@ function Shop() {
 
   function handleFakeCheckout(e) {
     e.preventDefault();
-    alert("Payment successful! Thank you for your purchase.");
+    setShowConfirmation(true);
     setCart([]);
     setShowPayment(false);
     setCardInfo({ name: "", number: "", exp: "" });
@@ -113,6 +114,29 @@ function Shop() {
           )}
         </div>
       </div>
+
+      {/* Confirmation Modal */}
+      {showConfirmation && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button
+              className="modal-close"
+              onClick={() => setShowConfirmation(false)}
+            >
+              ✕
+            </button>
+            <h3>Payment Successful!</h3>
+            <p>Thank you for your purchase.</p>
+            <div className="purchase-summary"></div>
+            <button
+              className="modal-ok-button"
+              onClick={() => setShowConfirmation(false)}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -7,24 +7,29 @@ function About() {
         <div className="text">
           <h1 className="our-story">Our Story</h1>
           <p className="p1">
-            Back in 2019, a team of educators and wellness enthusiasts launched
-            Healthy Lifestyle to turn balanced living into simple, daily habits.
-            Our goal is to guide you through small, consistent steps—like meal
-            swaps, movement prompts, and sleep routines—to build lasting health
-            and celebrate every victory.
+            <p className="p1">
+              Hi, I'm Bahar Lawter! I always have been a health-conscious person
+              who loves reading new researched papers and blogs about health. I
+              enjoy living a healthy lifestyle and practice intermittent fasting
+              as a part of my wellness journey. As someone passionate about
+              health and technology, I decided to build a new app called Healthy
+              Lifestyle App. This app has great features including a blogs page
+              where you can read the latest health research, purchase
+              recommended books straight from the website, and use an AI
+              assistant where you can enter a prompt, and get fast answers to
+              your health-curious questions. You can also leave comments on
+              posts to build a supportive community.
+            </p>
           </p>
           <h1>Our Goal</h1>
           <p>
-            Our mission is to guide you toward a sustainable, joyful
-            lifestyle—one small step at a time. We believe that real change
-            happens through consistent, manageable habits, not drastic
-            overhauls. That’s why our app focuses on bite-sized challenges,
-            personalized progress tracking, and positive reinforcement rather
-            than guilt trips. Whether you’re swapping soda for sparkling water
-            or aiming for your first 5K, we’re here to celebrate every victory,
-            big or small. By blending expert insights with smart notifications
-            and a supportive community, we want to help you build—and stick
-            with—habits that last a lifetime.
+            My mission is to guide you toward a sustainable and joyful lifestyle
+            one small step at a time. I believe that real change happens through
+            consistency, and constantly educating yourself. Whether you're
+            quitting your sugar, or training intermmittent fasting, I'm here to
+            celebrate every victory, big or small. By blending expert insights
+            with AI assistance, and a supportive community, I want to help you
+            build—and stick with—habits that last a lifetime.
           </p>
         </div>
         <img

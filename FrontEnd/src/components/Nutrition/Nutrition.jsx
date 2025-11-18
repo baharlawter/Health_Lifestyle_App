@@ -33,7 +33,7 @@ function Nutrition() {
       .then((response) => response.json())
       .then((result) => {
         // console.log(result);
-        setData(result); //Stores API responst in this State(data state)
+        setData(result); //Stores API response in this State(data state)
       })
       .catch((error) => console.error("Fetch error:", error));
   }

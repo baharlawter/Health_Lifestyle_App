@@ -7,7 +7,11 @@
       "request": "launch",
       "mainClass": "com.healthylifestyle.blogapi.BlogapiApplication",
       "projectName": "blogapi",
-      "cwd": "${workspaceFolder}/BackEnd"
+      "cwd": "${workspaceFolder}/BackEnd",
+      // "args": ["${env:GOOGLE_API_KEY}"]
+      "env": {
+        "GOOGLE_API_KEY": "AIzaSyD2u5Qv8C_W5CWkp-IfFXT4ts3XIGcwnyM"
+      }
     },
     {
       "type": "node",
