@@ -44,6 +44,7 @@ Create: `FrontEnd/.env.local`
 Properties:
 
 ```
+
 VITE_API_BASE_URL=http://localhost:8081
 You need to get Google Gemini api key from this website
 
@@ -61,12 +62,16 @@ You need to get Google Gemini api key from this website
    - Make sure MySQL is running and the database is set up.
 
 2. **Frontend Setup:**
+
    - Navigate to the UI folder.
    - Install dependencies and start the React app:
+
      ```bash
+
      npm install
      npm start
      ```
+
 3. **Access the app:**
    - Open your browser and go to `http://localhost:5173`
 
